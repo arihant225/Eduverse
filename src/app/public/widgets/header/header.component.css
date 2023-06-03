@@ -1,0 +1,16 @@
+.main-Head{
+
+    height: 200px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    letter-spacing: 1px;
+    left:0px;
+    right:0px;
+    top:0px;
+    position: absolute;
+}

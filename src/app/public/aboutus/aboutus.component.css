@@ -1,0 +1,146 @@
+.edu-png{
+
+    width: 80%;
+    border-radius:100% ;
+    aspect-ratio: 1/1;
+}
+.about-us-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    height: 100px;
+    color: whitesmoke;
+    font-size: 30px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+.about-us-Nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    height: 100px;
+    color: #f5f5f5;
+    background-color: black;
+    z-index: 1;
+
+
+}
+.sticky{
+    position: fixed;
+    top:0px;
+    
+}
+.nav-Buttons{
+    padding: 3px 20px;
+    border: solid white 1px;
+    margin: 20px;
+    border-radius: 30px;
+
+}
+
+.row-top{
+    margin:100px
+}
+.content-about-us{
+   
+    color: beige;
+}
+.content{
+    padding: 30px;
+    font-size: 0.96rem;
+}
+
+.content-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+;
+}
+.profile{
+margin-top: 70px;
+}
+.profile-name{
+    font-size: 30px;
+    color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    
+}
+
+.social-hangouts{
+    font-size: 14px;
+    color: bisque;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-left:100px;
+    font-size: 0.8rem;
+}
+.profile-img{
+    border-radius: 0px;
+    border: #f5f5f5 4px solid;
+    width: 100%;
+
+
+    aspect-ratio: 3.5/3;
+
+}
+
+a {
+    color: rgb(246, 248, 209);
+    text-decoration: none;
+
+}
+a:hover {
+    color: rgb(246, 248, 209);
+    text-decoration: underline;
+}
+.web{
+    margin-top: 100px;
+}
+.dev{
+    
+    margin-top: 100px;
+}
+.profile-descr{
+
+    border: white 2px solid;
+    height: 90%;
+    width: 100%;
+    margin:20px,100px;
+    position: relative;
+}
+.profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ height: 100%;
+    width: 100%;
+   
+}
+.skills{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #f5f5f5;
+    height: 50px;
+    margin-top:55px;
+
+  
+}
+.skills-child{
+background-color: black;
+opacity:90%;
+color: white;
+padding: 4px 20px;
+border-radius: 30px;
+font-size: 0.7rem;
+}

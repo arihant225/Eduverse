@@ -1,0 +1,120 @@
+<div class="no-extra-margin main-body">
+    <div id="web" class="row web">
+        <div class="col-sm-12 col-md-12">
+            <div class="about-us-header">
+                ABOUT - US
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="about-us-Nav" id="aboutusnav">
+                <button class="nav-Buttons" (click)="navigateTo('web')">web</button><button (click)="navigateTo('dev')" class="nav-Buttons">dev</button>
+
+            </div>
+        </div>
+    </div>
+    
+    <div  class="row row-top">
+        <div class="col-sm-12 col-md-1">
+        </div>
+
+
+        <div class="col-sm-12 col-md-4">
+            <div class="content-img">
+                <img src="assets/Edu.png" class="edu-png">
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 content-about-us">
+            <div class="content">
+                At our website, we believe in empowering educators by providing them with a robust platform to showcase
+                their teaching skills and connect with learners worldwide. Whether you are an experienced professional,
+                a
+                passionate subject expert, or a dedicated teacher, our website is the perfect place for you to reach out
+                to
+                a broader audience and make a significant impact.
+            </div>
+            <div class="content">
+
+                Through our intuitive streaming capabilities, educators can effortlessly create and deliver their
+                courses in
+                a dynamic and interactive format. We offer a range of tools and features to enhance the online learning
+                experience, including live streaming, pre-recorded video lessons, interactive quizzes, discussion
+                forums,
+                and more. Our platform ensures that educators have all the necessary resources at their fingertips to
+                engage
+                learners effectively.
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-1">
+        </div>
+    </div>
+
+
+
+    <div class="row row-top">
+        <div class="col-sm-12 col-md-1">
+        </div>
+        <div class="col-sm-12 col-md-6 content-about-us">
+
+            <div class="content">
+                For learners, our website serves as a comprehensive hub of knowledge, where they can explore a diverse
+                range
+                of courses across various educational streams. Whether it's learning a new programming language,
+                improving
+                communication skills, or diving into the depths of scientific concepts, our website offers a vast
+                catalog of
+                courses to cater to every learner's needs and interests.
+            </div>
+            <div class="content">
+                Our community-driven approach fosters collaboration and interaction between educators and learners.
+                Educators can receive feedback, answer questions, and engage in discussions, enabling a rich and
+                immersive
+                learning environment. Learners benefit from the expertise and guidance of experienced educators,
+                enabling
+                them to acquire new skills, expand their knowledge, and achieve their educational goals.
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+            <div class="content-img">
+                <img src="assets/Learner.png" class="edu-png">
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-1">
+        </div>
+    </div>
+
+
+    <div id="dev" class="row profile dev no-extra-margin">
+        <div  class="row row-top">
+        <div class="col-sm-12 col-md-1">
+        
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="content-img">
+            <img src="assets/arihant.png" class="profile-img">
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6" >
+            <div class="profile-container">
+            <div class="profile-descr">
+            <div class="profile-name">ARIHANT JAIN</div>
+            <div class="social-hangouts" *ngFor="let contact of socialHangouts">
+               <span class="socialIcon"> <i class="bi bi-{{contact.socialHangout}}"></i> </span><a [href]="contact.socialUrl"  target="_blank" [innerHTML]="contact.SocialContent"></a>
+
+
+            </div>
+            <div class="skills col-md-12">
+                <span class="skills-child" *ngFor="let skill of skills" [innerHTML]="skill"></span>
+
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-sm-12 col-md-1">
+        </div>
+    </div>
+    </div>
+
+</div>
