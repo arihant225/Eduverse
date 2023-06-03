@@ -4,6 +4,21 @@
     border-radius:100% ;
     aspect-ratio: 1/1;
 }
+.home{
+    z-index: 6;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    position: fixed;
+    right:10px;
+    top:10px;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: white;
+    color: black;
+}
 .about-us-header{
     display: flex;
     align-items: center;
@@ -31,6 +46,7 @@
 .sticky{
     position: fixed;
     top:0px;
+    left:0px;
     
 }
 .nav-Buttons{
