@@ -1,8 +1,7 @@
 .edu-png{
 
-    width: 80%;
-    border-radius:100% ;
-    aspect-ratio: 1/1;
+    width: 90%;
+    aspect-ratio: 1.2/0.9;
 }
 .home{
     z-index: 6;

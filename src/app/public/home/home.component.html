@@ -1,34 +1,66 @@
 <app-header></app-header>
 <div class="Home">
-    
-    <!-- <img class="moon-img" src="assets/Moon.png"> -->
- 
-    <div class="stars">*</div>
+    <span id="menu-trigger" class="menu-Trigger"><i class="bi bi-list"></i></span>
+
+   
+
+
     <div class="row  no-extra-margin">
-        <div class="col-md-12">
-            
-        </div>
-        <div class="col-md-4 col-sm-3"></div>
-        <div class="col-md-4 col-sm-6 "><input value="ARIHANT" class="form-control  searchBar"><div class="searchIcon"><i class="bi bi-binoculars-fill"></i></div></div>
-        <div class="col-md-4 col-sm-3"></div>
+
+        <div class="col-md-3 col-sm-2"></div>
+        <div class="col-md-6 Home-character"><span>
+                <p> <img src="/assets/Home-character.png" id="character">
+                </p>
+                <p>"Empowering Education, Anytime, Anywhere"</p>
+            </span></div>
+        <div class="col-md-3 col-sm-2"></div>
         <div class="col-md-3"></div>
         <div class="col-md-6 col-sm-12">
             <div class="meter">
-        <span class="metric-count">{{TutorsCount}}</span>
-        <span class="metric-count">{{TuteesCount}}</span>
-        <span class="metric-count">{{InstituteCount}}</span>
-    
+                <span class="metric-count">{{TutorsCount}}</span>
+                <span class="metric-count">{{TuteesCount}}</span>
+                <span class="metric-count">{{InstituteCount}}</span>
+
             </div>
             <div class="meter-base">
                 <span class="tag">Tutors</span>
-                
+
                 <span class="tag">Tutees</span>
-                
+
                 <span class="tag">Institutes</span>
             </div>
 
-        
-    </div>
+
+
+        </div>
         <div class="col-md-3"></div>
+
+        <div class="home-content row" id="contentdiv">
+            <div class="col-md-6 col-sm-6 place-right"><span id="left-triangle"></span></div>
+            <div class="col-md-6 col-sm-6 place-left"><span id="right-triangle"></span></div>
+            <div class="col-md-1 col-sm-1"></div>
+            <div class="col-md-5 col-sm-5">
+                <div class="welcome-text">Welcome to Eduverse: Ignite Your Learning Journey</div>
+                <div>
+                    Unlock a world of exclusive benefits and personalized experiences - join us by logging in or signing
+                    up today!
+                </div>
+                <div class="button-centeric">
+                    <button class="btn loginButton">Login <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 welcomeline">
+            <div class="WelcomeStrikeOut">
+                
+            </div>
+            </div>
+            <div class="col-sm-1 col-sm-1"></div>
+            <div class="col-md-3 col-sm-4">
+                <div *ngFor="let item of routesItems" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}}</span><span><i class="bi bi-arrow-right"></i></span></div>
+           
+            </div>
+
+        </div>
+
     </div>
 </div>

@@ -4,15 +4,32 @@
     left:0px;
     right:0px;
     position: absolute;
-    top:200px;
+    top:180px;
     bottom:0px;
 }
+
+
 .moon-img{
     height: 70%;
     left:-200px;
     top:90px;
     position:absolute;
     
+}
+.menu-Trigger {
+    position: fixed;
+    top:30px;
+    right:30px;
+    color:aliceblue;
+    font-size: 20px;
+    z-index: 5;
+    text-shadow: 1px 0.5px ;
+}
+.menu-Trigger:hover{
+   cursor: pointer;
+}
+.menu-Trigger:active{
+    cursor:progress;
 }
 .stars{
     color: white;
@@ -34,49 +51,60 @@
         color: bisque;
     }
 }
-.searchIcon{
-    width: 50px;
-    height: 50px;
-    z-index: 5;
-    background-color: white;
-    border-radius:50px ;
-    position: relative;
-    top:10px;
-    z-index: 0;
-    top:-50px;
-    
+.Home-character{
+    background-color: rgb(251, 209, 209);
+    height:85px;
+    font-weight: bold;
+    word-spacing: 1rem;
+    height: 380px;
+    color: black;
+    font-size: 1rem;
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-    
-  
+    margin:0;
+    padding:10px
+}
+.TagLine span{
+    margin: auto;
+    width: 100%;
+
 
 }
-.searchBar{
-    height: 50px;
-    border-radius: 50px;
+ .TagLine span p{
+    width: 100%;
+  
     align-items: center;
-    text-align: center;
-    background-color: rgba(255, 226, 226, 0.7);
-    border: none;
-    
+    justify-content: center;
+    display: flex;
+
+ }
+
+.inner-tag::before{
+   
+    color: white;
 
 }
 .metric-count{
 width: 27%;
 aspect-ratio: 1/1;
-
 border-radius: 100%;
 border: 5px solid white;
 display: inline-flex;
 margin: 70px 30px;
-font-size: 1.3rem;
+font-size: 1rem;
 align-items: center;
 justify-content: center;
 color: white;
-
+padding-bottom: 10px;
+}
+#character{
+    width: 300px;
+    align-self: center;
+    justify-content: center;
+    position: relative;
+    z-index:1;
 }
 .metric-count:nth-child(1){
     width: 18% !important;
@@ -122,8 +150,121 @@ box-shadow: none;
 .tag:nth-child(1){
     padding: 3px 9%;
     border-radius: 20px;
+
 }
 .tag:nth-child(3){
     padding: 3px 9%;
     border-radius: 20px;
+}
+.button-centeric{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+.home-content{
+    background-color: rgb(256, 256, 256);
+    min-height: 100vh;
+    margin-top: 100px;
+    margin-bottom:0px
+}
+.overlay-css{
+    
+    z-index: 2;
+    position: relative;
+    margin:0px
+}
+#left-triangle{
+   
+    border-top: 0px solid black;
+    border-bottom: 100px solid transparent;
+    border-left: 0vw solid transparent;
+    border-right:30vw solid black ;
+    height: 0px;
+    width: 0px;
+    padding: 0px;
+    position: relative;
+    left:5px
+  
+}
+.welcome-text{
+    font-size: 3rem;
+    color: black;
+    font-weight:bolder;
+    padding: 10px;
+    padding-top: 100px;
+}
+@media screen and (max-width:800px) {
+    .welcome-text{
+        font-size: 2rem;
+    }
+
+    .welcomeline{
+        display: none;
+    }
+
+}
+.WelcomeStrikeOut{
+    width: 4px;
+    height: 600px;
+    background-color: black;
+    transform: skew(20deg);
+    margin-left: 100px;
+
+    
+}
+
+#right-triangle{
+   
+    border-top: 0px solid black;
+    border-bottom: 100px solid transparent;
+    border-left: 30vw solid black;
+    border-right:0vw solid transparent ;
+    height: 0px;
+    width: 0px;
+    margin:0px;
+    padding: 0px;
+    position: relative;
+    left:-5px
+}
+.place-right{
+    display: flex;
+    padding: 0px;
+    justify-content: right;
+    margin-bottom: 10px;
+
+
+}
+.place-left{
+    display: flex;
+    padding: 0px;
+    justify-content: left;
+
+
+}
+.loginButton{
+    color: black;
+    padding: 9px 40px;
+    margin-top: 40px;
+    border-radius: 40px;
+    border:2px solid black;
+    background-color: white;
+}
+
+
+.loginButton i {
+    margin-left: 8px;
+}
+
+
+.route-items{
+    color: white;
+    display: flex;
+    padding: 20px;
+    background-color: black;
+    margin-top:10px ;
+    width: 240px;
+}
+.route-items-child{
+    width: 90%;
 }

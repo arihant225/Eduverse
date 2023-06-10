@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMenuRoutes } from 'src/app/Interfaces/IMenuRoutes';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   public TutorsCount:number=0;
   public TuteesCount:number=0;
+  public routesItems:IMenuRoutes[]=[{item:'Explore-around',item_route:'/explore'},{item:'Blogs',item_route:'/blogs'},{item:'Sign Up',item_route:'/signup'},{item:'Events',item_route:'/events'},{item:'Opportunity',item_route:'/opportunity'},{item:'Become a Host',item_route:'/signin'},{item:'About-us',item_route:'/aboutus'}]
   public InstituteCount:number=0;
 
   ngOnInit(): void {
@@ -31,6 +33,22 @@ export class HomeComponent implements OnInit {
       }
       
     }, 1);
+
+
+    window.onscroll=()=>{
+      let id=document.getElementById("menu-trigger");
+      let contentdiv=document.getElementById("contentdiv")
+      if(contentdiv&&contentdiv.offsetTop+117<window.pageYOffset) 
+      {
+        if(id)
+        id.style.color="black"
+      }
+      else if(contentdiv){
+        if(id)
+        id.style.color="white"
+
+      }
+    }
   }
   public educationGenres: string[] = [
     "STEM (Science, Technology, Engineering, and Mathematics)",
