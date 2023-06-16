@@ -201,15 +201,19 @@ box-shadow: none;
   
 }
 .welcome-text{
-    font-size: 3rem;
+    font-size: 2.1rem;
     color: black;
-    font-weight:bolder;
+    font-weight:bold;
     padding: 10px;
     padding-top: 100px;
 }
-@media screen and (max-width:800px) {
+.welcome-text-secondary{
+    color: black;
+    margin-top: 50px;
+}
+@media screen and (max-width:1300px) {
     .welcome-text{
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .welcomeline{
@@ -277,6 +281,10 @@ box-shadow: none;
     background-color: black;
     margin-top:10px ;
     width: 240px;
+    cursor: pointer;
+}
+.route-items:hover{
+    background-color: rgb(28, 28, 28);
 }
 .route-items-child{
     width: 90%;
