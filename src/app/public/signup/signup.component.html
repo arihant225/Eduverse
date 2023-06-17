@@ -7,7 +7,7 @@
                     <div class="createAccounttext">
 
                         Create an account<br />
-                        <span class="createAccounttextsecondary">- with Eduverse</span>
+                        <div class="createAccounttextsecondary">- with Eduverse</div>
 
                     </div>
                     <div class="createaccountimage">
@@ -17,26 +17,21 @@
                         <img src="assets/createaccountImage2.png">
                     </div>
                 </div>
-
                 <div class="col-md-0 col-lg-1"></div>
-                <div class="col-lg-4 col-md-8 col-sm-10">
-                    <div class="col-md-12 col-sm-12 form" [formGroup]="signupForm">
-                        <ng-container *ngFor="let attribute of FormAttributes" class="input-group">
-                            <div class="input-group">
-                        <span class="input-group-text">
-                            <i  class="bi {{attribute.icon}} "></i>
-                           </span>
-                            <input formControlName="{{attribute.formControlName}}" class="form-control" [type]="attribute.inputType" [placeholder]="attribute.placeholder">
-                        
-                        </div>
-                        </ng-container>
-                         
-              
+                <div class="col-lg-5 col-md-8 col-sm-10 authenticateDiv" >
+                    <div class="prompt">
+                    <div class="promp-Ask">
+                    
+                       <span [innerHTML]="prompt"></span> <span class="errorPrompt" *ngIf="errorPrompt" [innerHtml]="errorPrompt"></span><span class="blinkingCursor"></span>
+                    
                     </div>
-
+                    <div class="userPrompt">
+                     <button><i class="bi bi-arrow-left-short" (click)="back()"></i></button>
+                        <input class="form-control" [formControl]="promptInput">
+                        <button (click)="next()" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-md-0 col-lg-1"></div>
-                
             </div>
 
 
