@@ -1,3 +1,4 @@
+<app-spinners *ngIf="Loader_text" [text]="Loader_text"></app-spinners>
 <div class="no-extra-margin">
 
     <div class="signup-Container">
@@ -23,12 +24,12 @@
                     <div class="promp-Ask">
                     
                        <span [innerHTML]="prompt"></span> <span class="errorPrompt" *ngIf="errorPrompt" [innerHtml]="errorPrompt"></span><span class="blinkingCursor"></span>
-                    
+                
                     </div>
                     <div class="userPrompt">
                      <button><i class="bi bi-arrow-left-short" (click)="back()"></i></button>
-                        <input class="form-control" [formControl]="promptInput">
-                        <button (click)="next()" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button>
+                        <input id="input-prompt" class="form-control" [formControl]="promptInput" (keypress)="promptInputEvents($event)">
+                        <button (click)="next()" id="nextButton" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button>
                     </div>
                     </div>
                 </div>

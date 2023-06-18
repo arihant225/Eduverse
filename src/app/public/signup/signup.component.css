@@ -80,10 +80,10 @@ width: 30vh;
     border: 1px rgb(221, 184, 184) solid;
     box-shadow: none !important;
     height:40px;
-  
-    font-weight: 500;
+    font-weight: 100;
     display: inline-block;
     font-size: 14px;
+    font-family:  'Arial Narrow';
 
 }
 .input-group-text{

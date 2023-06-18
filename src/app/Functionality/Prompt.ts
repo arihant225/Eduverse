@@ -1,5 +1,8 @@
 import { FormControl, Validators } from "@angular/forms";
-import { Subject, interval } from "rxjs";
+import { Observable, Subject, interval } from "rxjs";
+import { IOtpRequest } from "../Interfaces/Models/Request/IOtpRequest";
+import { OtpService } from "../services/otp-services.service";
+import { IOtpResponse } from "../Interfaces/Models/Response/IOtpResponse";
 
 export class UserPrompt {
     public values: string[] = [];
@@ -9,7 +12,7 @@ export class UserPrompt {
     public currentPromptIntervalRef:any;
     public currentErrorPromptInterval:any;
 
-    constructor() {
+    constructor(private otpServices:OtpService) {
         for (let prompt of this.prompts) {
             this.values.push("");
         }
@@ -59,6 +62,8 @@ export class UserPrompt {
             return false;
     }
     public next() {
+       
+        this.errorPrompt.next(null);
         if(this.currentErrorPromptInterval)
         {
             clearInterval(this.currentErrorPromptInterval)
@@ -76,7 +81,8 @@ export class UserPrompt {
         if (this.currentIndex >= this.prompts.length - 1) {
             return;
         }
-
+        
+       
         if (this.currentIndex >= 0 && this.checkError())
             return;
             this.errorPrompt.next(null)
@@ -86,6 +92,8 @@ export class UserPrompt {
     }
     public prev() {
         
+       
+        this.errorPrompt.next(null);
         if(this.currentErrorPromptInterval)
         {
             clearInterval(this.currentErrorPromptInterval)
@@ -139,6 +147,29 @@ export class UserPrompt {
         }, 50)
 
 
+    }
+    async generateOtpForMail():Promise<any>{
+        let body:IOtpRequest={
+            Id:this.controls[2].value,
+            UserName:this.controls[1].value,
+            Method:"mail",
+            code:0,
+
+        }
+        return new Promise<any>((resolve,reject)=>{
+            this.otpServices.generateOtpForSignUpMail(body).subscribe(
+                d=>{
+
+                    resolve({body:d,success:true})
+
+                },
+                error=>{
+                   
+                    resolve({body:null,success:false})
+                }
+            )
+
+        }) 
     }
 
 
