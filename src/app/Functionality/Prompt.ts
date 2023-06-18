@@ -110,13 +110,13 @@ export class UserPrompt {
         this.currentIndex--;
         this.typePrompt();
     }
-    save(val: string) {
+    public save(val: string) {
 
         this.values[this.currentIndex] = val;
 
     }
 
-    typePrompt() {
+    public typePrompt() {
        
         let prompt = this.prompts[this.currentIndex];
         let tempPrompt = "";
@@ -133,7 +133,7 @@ export class UserPrompt {
 
         }, 50)
     }
-    typeError() {
+    public typeError() {
         let prompt = this.errorMessages[this.currentIndex];
         let tempPrompt = "<br><br><br>";
         let tempIndex = 0;
