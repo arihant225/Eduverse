@@ -51,6 +51,7 @@ export class SignupComponent implements OnInit {
         let Obj=await this.signUpPrompts.checkOtpForMail()
         if(Obj.body?.isAuthenticate)
         {
+          this.signUpPrompts.Otps.mail=true;
         }
         else{
           this.promptInput.setValue("");
@@ -70,7 +71,7 @@ export class SignupComponent implements OnInit {
       })
       if(this.signUpPrompts.currentIndex != 3)
       {
-        this.signUpPrompts.errorMessages[this.signUpPrompts.currentIndex]=tempMessage;
+        this.signUpPrompts.errorMessages[this.signUpPrompts.currentIndex-1]=tempMessage;
         this.promptInput = this.signUpPrompts.controls[this.signUpPrompts.currentIndex];
       }
       return;
@@ -100,9 +101,16 @@ export class SignupComponent implements OnInit {
       this.prompt = d;
     })
   }
-
-  private passwordCheck(password: FormControl) {
+  public async regenerateOtp(){
+    this.Loader_text = "We sent you an Otp on your mail"
+      let obj = await this.signUpPrompts.generateOtpForMail()
+      this.Loader_text = null;
   }
+  public editInputPrompt(){
+    this.signUpPrompts.readOnly[this.signUpPrompts.currentIndex]=!this.signUpPrompts.readOnly[this.signUpPrompts.currentIndex]
+  }
+
+
 }
 
 

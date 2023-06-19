@@ -27,10 +27,15 @@
                 
                     </div>
                     <div class="userPrompt">
-                     <button><i class="bi bi-arrow-left-short" (click)="back()"></i></button>
-                        <input id="input-prompt" class="form-control" [formControl]="promptInput" (keypress)="promptInputEvents($event)">
-                        <button (click)="next()" id="nextButton" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button>
+                     <button (click)="back()" [disabled]="signUpPrompts.currentIndex==1||signUpPrompts.currentIndex==0"><i class="bi bi-arrow-left-short" ></i></button>
+                        <input id="input-prompt" *ngIf="signUpPrompts.currentIndex!=8" [type]="signUpPrompts.inputtype[signUpPrompts.currentIndex]" class="form-control"[readOnly]="signUpPrompts.readOnly[signUpPrompts.currentIndex]" [formControl]="promptInput" (keypress)="promptInputEvents($event)">
+                        <span class="divInput" *ngIf="signUpPrompts.currentIndex==8"><span><input class="form-control" type="radio" name="radio" [formControl]="promptInput" value="SELF"> SELF <input class="form-control" [formControl]="promptInput" name="radio" type="radio" value="INSTITUTIONAL"> INSTITUTIONAL</span></span>
+                        <button  (click)="regenerateOtp()"  [disabled]="signUpPrompts.readOnly[signUpPrompts.currentIndex]" *ngIf="signUpPrompts.currentIndex==3"><i class="bi bi-arrow-clockwise"></i></button>
+                        <button *ngIf="signUpPrompts.readOnly[signUpPrompts.currentIndex]&&signUpPrompts.currentIndex!=3&&signUpPrompts.currentIndex!=8" (click)="editInputPrompt()"><i class="bi bi-pencil-fill" ></i></button>
+                        <button  (click)="next()" id="nextButton" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button> 
+
                     </div>
+                   
                     </div>
                 </div>
             </div>
