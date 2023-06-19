@@ -1,6 +1,8 @@
 export interface IOtpResponse {
-    IsGenerate: boolean;
+    isGenerate: boolean;
     successCode: number;
-    AuthenticateCode: number;
+    authenticateCode: number;
     isAuthenticate: boolean;
+    message:string
+
   }

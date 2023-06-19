@@ -1,8 +1,10 @@
 export interface IOtpRequest {
-    Id: string;
-    UserName: string;
+    Id?: string;
+    UserName?: string;
     code?: number | null;
     Password?: string | null;
     Method: string;
+    Time?:Date;
+    RequestedOtp?:number
   }
   

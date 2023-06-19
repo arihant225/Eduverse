@@ -22,7 +22,7 @@ export class UserPrompt {
         "Sure, let's get started with your registration process. I'll guide you through the necessary steps to complete your registration.",
         "Please provide your full name in the format of [First Name] [Last Name].",
         "Kindly enter the email address you would like to use for your registration.",
-        "An OTP (One-Time Password) has been sent to the email address you provided. Please check your inbox and enter the OTP here to verify your email.",
+        "An OTP (One-Time Password) has been sent to the email address you provided And it will be valid for 5 Min. Please check your inbox and enter the OTP here to verify your email. ",
         "Please enter your phone number, including the country code if applicable.",
         "Choose a password for your account. Please ensure it meets the required criteria, such as having a minimum length, containing both letters and numbers, etc.",
         "To ensure there are no typos, please re-enter your chosen password for confirmation.",
@@ -164,12 +164,45 @@ export class UserPrompt {
 
                 },
                 error=>{
-                   
                     resolve({body:null,success:false})
                 }
             )
 
         }) 
+    }
+    async checkOtpForMail(){
+        
+            let body:IOtpRequest={
+                Id:this.controls[2].value,
+                UserName:this.controls[1].value,
+                Method:"mail",
+                code:0,
+                RequestedOtp:parseInt(this.controls[3].value),
+                Time:new Date()
+    
+            }
+         
+            return new Promise<any>((resolve,reject)=>{
+                this.otpServices.VerifyOtpForSignUpMail(body).subscribe(
+                    d=>{
+                   
+    
+                        resolve({body:d,success:true})
+    
+                    },
+                    error=>{
+                       
+                        resolve({body:null,success:false})
+                    }
+                             
+                )
+    
+            })
+
+        
+
+
+
     }
 
 

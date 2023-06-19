@@ -17,4 +17,8 @@ export class OtpService {
   {
     return this.httpClient.post<IOtpResponse>(this.url+'signup/generateOtpForMail',body);
   }
+  public VerifyOtpForSignUpMail(body:IOtpRequest):Observable<IOtpResponse> 
+  {
+    return this.httpClient.post<IOtpResponse>(this.url+'signup/verifyOtpForMail',body);
+  }
 }
