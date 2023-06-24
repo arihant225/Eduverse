@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap');
+.Horizontal-Menu{
+    display: flex;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    z-index: 3;
+    top:0;
+    height: 75px;
+    width: 100%;
+}
+.EduverseLogo{
+    width: 30%;
+    padding:20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size:1.8rem;
+    font-family: 'Bacasime Antique', serif;
+
+}
+.MenuItems{
+    display: flex;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: right;
+}
+.MenuItems div{
+    background-color: rgb(0, 0, 0);
+    padding: 4px 20px;
+    margin: 20px;
+    color: white;
+    border-radius:30px ;
+   cursor: pointer;
+    
+}
+.MenuItems :hover{
+    scale: 1.03;
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+.SideMenu-trigger{
+    width: 70%;
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 40px;
+    color: white;
+    text-shadow: 1px 1px;
+    font-size: 24px;
+
+}
+@media screen and (max-width:1050px) {
+    .MenuItems{
+        display: none;
+    }
+  
+    .SideMenu-trigger{
+        display: flex;
+    }
+    
+}
+@media screen and (min-width:1051px) 
+{
+    .sideview{
+        display: none;
+    }
+    
+}
+
+.SideMenu{
+    position: fixed;
+    z-index: 6;
+    width: 0px;
+    background-color: black;
+    height: 100vh;
+    padding: 20px;
+    display: none;
+  
+
+}
+.openSideMenu .EduverseLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding:50px;
+    font-size: 2.1rem;
+    border-bottom: solid 3px white;
+    margin-bottom: 100px;
+}
+.openSideMenu .sidemenuItems{
+    margin:20px 60px 0px 20px;
+  cursor: pointer;
+    color: white;
+    display: block;
+    padding: 10px;
+
+}
+.openSideMenu{
+    display: block;
+    width: 300px;
+    animation: openSideMenuAnimation   ;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+
+}
+
+.closeSideMenu{
+  
+    animation: closeSideMenuAnimation   ;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    display: block;
+    width: 0px;
+    border: 0px;
+    padding: 0px;
+
+}
+.closeSideMenu .sidemenuItems{
+    display: none;
+}
+.closeSideMenu .EduverseLogo{
+    display: none;
+}
+@keyframes closeSideMenuAnimation {
+    0%{
+        display: block;
+        width: 300px;
+    }
+    100%{
+        display: block;
+        width:0px
+    }
+}
+@keyframes openSideMenuAnimation {
+    0%{
+        display: block;
+        width: 0px;
+    }
+    100%{
+        display: block;
+        width:300px
+    }
+}
+.SideMenu .sidemenuItems:hover{
+    background-color: white;
+    color: black;
+}

@@ -3,8 +3,12 @@ import { Observable, Subject, interval } from "rxjs";
 import { IOtpRequest } from "../Interfaces/Models/Request/IOtpRequest";
 import { OtpService } from "../services/otp-services.service";
 import { IOtpResponse } from "../Interfaces/Models/Response/IOtpResponse";
+import { SignupComponent } from "../public/signup/signup.component";
+import { SignupService } from "../services/signup.service";
+import { OnDestroy } from "@angular/core";
+import { ICredentials } from "../Interfaces/Models/Request/ICredentials";
 
-export class UserPrompt {
+export class UserPrompt  {
     public values: string[] = [];
     public currentIndex: number = -1;
     public currentPrompt: Subject<string> = new Subject<string>();
@@ -14,7 +18,7 @@ export class UserPrompt {
     public Otps={mail:false,phone:false}
     public readOnly:boolean[]=[ 
     ]
-    constructor(private otpServices:OtpService) {
+    constructor(private otpServices:OtpService,private signupService:SignupService) {
         for (let prompt of this.prompts) {
             this.values.push("");
             this.readOnly.push(false)
@@ -27,14 +31,13 @@ export class UserPrompt {
     }
     public prompts: string[] = [
         "Sure, let's get started with your registration process. I'll guide you through the necessary steps to complete your registration.",
-        "Please provide your full name in the format of [First Name] [Last Name].",
-        "Kindly enter the email address you would like to use for your registration.",
-        "An OTP (One-Time Password) has been sent to the email address you provided And it will be valid for 5 Min. Please check your inbox and enter the OTP here to verify your email. ",
+        "Please provide your full name.",
+        "Kindly enter the email address for your registration.",
+        "An OTP (One-Time Password) has been sent to your registered  email And it will be valid for 5 Min. . ",
         "Please enter your phone number.",
-        "Choose a password for your account. Please ensure it meets the required criteria, such as having a minimum length, containing both letters and numbers, etc.",
-        "To ensure there are no typos, please re-enter your chosen password for confirmation.",
-        "If you have a referral code, please let us know. A referral code is a unique identifier that may provide you with certain benefits or bonuses.",
-        "Please indicate whether you are signing up as an individual (self) or on behalf of an institution (organization, company, etc.)."
+        "Choose a password for your account.",
+        "Please re-enter your chosen password for confirmation.",
+        "Any referal Code that you have [optional]."
     ]
     public controls: FormControl[] = [
         new FormControl('', []),
@@ -45,11 +48,11 @@ export class UserPrompt {
         new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/)]),
         new FormControl('', [Validators.required,Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/)]),
         new FormControl('', []),
-        new FormControl('', [])
+
     ];
 
     
-    public inputtype:string[]=["text","text","mail","number","tel","password","password","text","text"]
+    public inputtype:string[]=["text","text","mail","number","tel","password","password","text"]
 
     public errorMessages: string[] = [
         "",
@@ -59,7 +62,6 @@ export class UserPrompt {
         "Please enter a valid phone number (10-digit number).",
         "Please enter a valid password (minimum 8 characters, at least one letter, one number, and one special character).",
         "Please ensure you reentering the right Password.",
-        "",
         ""
     ];
 
@@ -76,10 +78,68 @@ export class UserPrompt {
         else
             return false;
     }
-    public next() {
+    public async next() {
+        if (this.currentIndex >= this.prompts.length - 1) {
+            let credential:ICredentials={
+                Name:this.controls[1].value,
+                EmailId:this.controls[2].value,
+                PhoneNumber:this.controls[4].value,
+                Password:this.controls[5].value,
+                Role:'',
+                EduverseId:''
+            }
+            this.signupService.createCredentials(credential).subscribe(
+                data=>{
+                    if(data){
+                        alert("account Created")
+                    }
+                },
+                error=>{
+                
+                }
+
+            )
+            return;
+        }
+        else if(this.currentIndex>0)
+        {
+            this.readOnly[this.currentIndex]=true;
+        }
         if(this.currentIndex==2&&this.Otps.mail)
         {
             this.currentIndex=3;
+        }
+        else if(this.currentIndex==2)
+        {
+           let canContinue= await this.signupService.canContinueWithEmail(this.controls[this.currentIndex].value);
+           if(!canContinue)
+           {
+            if(confirm("OOPS!! It seems that you already have account with this email. Do you want to continue signing In with this email?"))
+            {
+                alert("NAVIGATING..................")
+            }
+            else{
+                this.readOnly[this.currentIndex]=false;
+            }
+            return;
+           }
+        }
+        else if(this.currentIndex==4)
+        {
+            let canContinue= await this.signupService.canContinueWithPhone(this.controls[this.currentIndex].value);
+            if(!canContinue)
+            {
+             
+            if(confirm("OOPS!! It seems that you already have account with this Phone No. Do you want to continue signing In with this Phone No?"))
+            {
+                alert("NAVIGATING..................")
+            }
+            else{
+                this.readOnly[this.currentIndex]=true;
+            }
+             return;
+            }
+
         }
         this.errorPrompt.next(null);
         if(this.currentErrorPromptInterval)
@@ -96,9 +156,7 @@ export class UserPrompt {
         this.errorPrompt=new Subject<string|null>();
  
         this.currentPrompt=new Subject<string>();
-        if (this.currentIndex >= this.prompts.length - 1) {
-            return;
-        }
+  
         
        
         if (this.currentIndex >= 0 && this.checkError())
@@ -163,7 +221,7 @@ export class UserPrompt {
 
 
 
-        }, 30)
+        }, 50)
     }
     public typeError() {
         let prompt = this.errorMessages[this.currentIndex];
@@ -181,6 +239,7 @@ export class UserPrompt {
 
     }
     async generateOtpForMail():Promise<any>{
+        this.readOnly[this.currentIndex]=true;
         let body:IOtpRequest={
             Id:this.controls[2].value,
             UserName:this.controls[1].value,
@@ -188,6 +247,7 @@ export class UserPrompt {
             code:0,
 
         }
+
         return new Promise<any>((resolve,reject)=>{
             this.otpServices.generateOtpForSignUpMail(body).subscribe(
                 d=>{
@@ -196,6 +256,7 @@ export class UserPrompt {
 
                 },
                 error=>{
+                    this.readOnly[this.currentIndex]=false;
                     resolve({body:null,success:false})
                 }
             )
@@ -203,7 +264,7 @@ export class UserPrompt {
         }) 
     }
     async checkOtpForMail(){
-        
+        this.readOnly[this.currentIndex]=true;
             let body:IOtpRequest={
                 Id:this.controls[2].value,
                 UserName:this.controls[1].value,
@@ -213,7 +274,6 @@ export class UserPrompt {
                 Time:new Date()
     
             }
-         
             return new Promise<any>((resolve,reject)=>{
                 this.otpServices.VerifyOtpForSignUpMail(body).subscribe(
                     d=>{
@@ -222,8 +282,10 @@ export class UserPrompt {
                         resolve({body:d,success:true})
     
                     },
+                   
                     error=>{
                        
+                    this.readOnly[this.currentIndex]=false;
                         resolve({body:null,success:false})
                     }
                              

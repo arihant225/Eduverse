@@ -1,51 +1,70 @@
 <app-spinners *ngIf="Loader_text" [text]="Loader_text"></app-spinners>
 <div class="no-extra-margin">
-
     <div class="signup-Container">
         <div class="signup-main ">
             <div class="row ">
-                <div class="col-lg-6 col-md-12 div col-sm-12">
+                <div class="col-lg-6 col-md-12 div col-sm-12  centeric-container">
                     <div class="createAccounttext">
 
                         Create an account<br />
                         <div class="createAccounttextsecondary">- with Eduverse</div>
 
-                    </div>
+                    </div >
+                    <div class="centeric-container">
                     <div class="createaccountimage">
                         <img src="assets/createaccountImage.png">
                     </div>
                     <div class="createaccountimagesecondary">
                         <img src="assets/createaccountImage2.png">
                     </div>
+                    </div>
                 </div>
-                <div class="col-md-0 col-lg-1"></div>
-                <div class="col-lg-5 col-md-8 col-sm-10 authenticateDiv" >
+                <div class="col-md-2  col-sm-1 col-lg-1"></div>
+                <div class="col-lg-5 col-md-8 col-sm-10 authenticateDiv">
+
                     <div class="prompt">
-                    <div class="promp-Ask">
+                        <div class="promp-Ask">
+
+                            <span [innerHTML]="prompt"></span> <span class="errorPrompt" *ngIf="errorPrompt"
+                                [innerHtml]="errorPrompt"></span><span class="blinkingCursor"></span>
+
+                        </div>
+                        <div class="userPrompt">
+                            <button (click)="back()"
+                                [disabled]="signUpPrompts.currentIndex==1||signUpPrompts.currentIndex==0"><i
+                                    class="bi bi-arrow-left-short"></i></button>
+
+                            <input id="input-prompt" *ngIf="signUpPrompts.currentIndex!=8"
+                                [type]="signUpPrompts.inputtype[signUpPrompts.currentIndex]" class="form-control"
+                                [readOnly]="signUpPrompts.readOnly[signUpPrompts.currentIndex]"
+                                [formControl]="promptInput" (keypress)="promptInputEvents($event)">
+                            <span class="divInput" *ngIf="signUpPrompts.currentIndex==8"><span><input
+                                        class="form-control" type="radio" name="radio" [formControl]="promptInput"
+                                        value="SELF"> SELF <input class="form-control" [formControl]="promptInput"
+                                        name="radio" type="radio" value="INSTITUTIONAL"> INSTITUTIONAL</span></span>
+                            <button (click)="regenerateOtp()"
+                                [disabled]="signUpPrompts.readOnly[signUpPrompts.currentIndex]"
+                                *ngIf="signUpPrompts.currentIndex==3"><i class="bi bi-arrow-clockwise"></i></button>
+                            <button
+                                *ngIf="signUpPrompts.readOnly[signUpPrompts.currentIndex]&&signUpPrompts.currentIndex!=3&&signUpPrompts.currentIndex!=8"
+                                (click)="editInputPrompt()"><i class="bi bi-pencil-fill"></i></button>
+                            <button (click)="next()" id="nextButton" [disabled]="promptInput.errors?.['required']"><i
+                                    class="bi bi-send"></i></button>
+
+                        </div>
+                        <div class="sign-in-ask" routerLink="/login">already a user? wanna sign In. </div>
+                    </div>
                     
-                       <span [innerHTML]="prompt"></span> <span class="errorPrompt" *ngIf="errorPrompt" [innerHtml]="errorPrompt"></span><span class="blinkingCursor"></span>
-                
-                    </div>
-                    <div class="userPrompt">
-                     <button (click)="back()" [disabled]="signUpPrompts.currentIndex==1||signUpPrompts.currentIndex==0"><i class="bi bi-arrow-left-short" ></i></button>
-                        <input id="input-prompt" *ngIf="signUpPrompts.currentIndex!=8" [type]="signUpPrompts.inputtype[signUpPrompts.currentIndex]" class="form-control"[readOnly]="signUpPrompts.readOnly[signUpPrompts.currentIndex]" [formControl]="promptInput" (keypress)="promptInputEvents($event)">
-                        <span class="divInput" *ngIf="signUpPrompts.currentIndex==8"><span><input class="form-control" type="radio" name="radio" [formControl]="promptInput" value="SELF"> SELF <input class="form-control" [formControl]="promptInput" name="radio" type="radio" value="INSTITUTIONAL"> INSTITUTIONAL</span></span>
-                        <button  (click)="regenerateOtp()"  [disabled]="signUpPrompts.readOnly[signUpPrompts.currentIndex]" *ngIf="signUpPrompts.currentIndex==3"><i class="bi bi-arrow-clockwise"></i></button>
-                        <button *ngIf="signUpPrompts.readOnly[signUpPrompts.currentIndex]&&signUpPrompts.currentIndex!=3&&signUpPrompts.currentIndex!=8" (click)="editInputPrompt()"><i class="bi bi-pencil-fill" ></i></button>
-                        <button  (click)="next()" id="nextButton" [disabled]="promptInput.errors?.['required']"><i class="bi bi-send"></i></button> 
 
-                    </div>
-                   
-                    </div>
+                    
                 </div>
-            </div>
 
+
+            </div>
 
         </div>
 
+
+
+
     </div>
-
-
-
-
-</div>

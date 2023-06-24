@@ -177,7 +177,7 @@ box-shadow: none;
 }
 .home-content{
     background-color: rgb(256, 256, 256);
-    min-height: 100vh;
+    min-height: calc(100vh-100px);
     margin-top: 100px;
     margin-bottom:0px
 }

@@ -33,7 +33,7 @@ ngOnInit(): void {
     
     window.onscroll=()=>{
       let element=document.getElementById('aboutusnav')
-      if(element && element.offsetTop<window.pageYOffset)
+      if(element && element.offsetTop<window.pageYOffset+60)
       {
         element.classList.add("sticky")
 

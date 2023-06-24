@@ -5,10 +5,9 @@ import { AboutusComponent } from './public/aboutus/aboutus.component';
 import { SignupComponent } from './public/signup/signup.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent,pathMatch:'full'},
   {path:'aboutus',component:AboutusComponent,pathMatch:'full'},
-  {path:'signup',component:SignupComponent,pathMatch:'full'}
-  
+  {path:'signup',component:SignupComponent,pathMatch:'full'},
+  {path:'home',component:HomeComponent,pathMatch:'full'}  
 ];
 
 @NgModule({
