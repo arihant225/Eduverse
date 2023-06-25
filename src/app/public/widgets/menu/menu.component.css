@@ -111,7 +111,7 @@
   
     animation: closeSideMenuAnimation   ;
     animation-iteration-count: 1;
-    animation-duration: 0.2s;
+    animation-duration: 0.1s;
     display: block;
     width: 0px;
     border: 0px;

@@ -1,3 +1,3 @@
 export class webConfig{
-   public static EduverseWebApiUrl="http://localhost:5114/api/"
+   public static EduverseWebApiUrl="https://localhost:44397/api/"
 }

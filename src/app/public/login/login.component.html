@@ -1,0 +1,46 @@
+<app-spinners *ngIf="Loader_text" [text]="Loader_text"></app-spinners>
+<div class="row no-extra-margin"> 
+
+        <div class="col-md-12 col-lg-6">
+            <img class="loginBook" src="/assets/loginImage.png"/>
+            <img class="loginBookSecondary" src="/assets/loginImageSecondary.png"/>
+            <div class="login-content">
+                
+Discover EduVerse: Unleash Limitless Learning Potential
+
+Welcome to EduVerse, where education knows no bounds. Immerse yourself in an interactive online platform designed to ignite your curiosity and expand your knowledge horizons. With a diverse range of courses, dynamic multimedia lessons, collaborative virtual classrooms, and personalized learning experiences, EduVerse empowers learners of all ages to unlock their full potential. Join us on this transformative journey and embark on a limitless educational adventure today!
+            </div> 
+           
+        </div>
+        <div class="col-md-12 col-lg-6">
+            <div class="login-container">
+                <div class="loginText">Login with Eduverse<br/>
+              
+                </div>
+                <div class="errors" ><span>&nbsp;</span><span *ngIf="invalidCredentials">Invalid EmailId OR Password</span></div>
+              
+                <div class="loginElement" [formGroup]="CredentialForm">
+                    <div class="form-label">
+                        EmailId/PhoneNo :
+                    </div>       
+                    <input class="form-control" formControlName="email">
+                    <br/>
+                    <div class="errors" ><span>&nbsp;</span><span *ngIf="required&&CredentialForm.get('email')?.errors">Email Address Or Phone No. is required</span></div>
+                    <div class="form-label" >
+                    Password :
+                    </div>       
+                    <input type="password" class="form-control" formControlName="password">
+                    <div class="errors" ><span>&nbsp;</span><span *ngIf="required&&CredentialForm.get('password')?.errors">Password is required</span></div>
+                    <div class="loginButton">
+                        <button (click)="submitCredentials()">logIn</button>
+                    </div>
+
+                </div>
+           
+            </div>
+            
+           
+        </div>
+  
+
+</div>
