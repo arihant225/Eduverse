@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ILogin } from 'src/app/Interfaces/Models/Request/ILogin';
 import { IToken } from 'src/app/Interfaces/Models/Response/IToken';
 import { LoginService } from 'src/app/services/login.service';
@@ -11,7 +12,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private formBuilder:FormBuilder,private loginService:LoginService) {    
+  constructor(private formBuilder:FormBuilder,private loginService:LoginService,private router:Router) {    
   }
   
   public Loader_text:string|null=null;
@@ -38,6 +39,7 @@ public submitCredentials(){
       data=>{
         this.Loader_text=null;
         token=data;
+        console.log(data)
       },
       error=>{
         if(error.status==401)
@@ -47,7 +49,12 @@ public submitCredentials(){
         }
       },
       ()=>{
-       // console.log(JSON.parse(window.atob(token?.jwtToken.split('.')[1])))
+        debugger;
+        localStorage.setItem("token",token.jwtToken);
+        localStorage.setItem("expirationTime",token.expiration);
+        localStorage.setItem("username",token.username);
+        localStorage.setItem("email",token.email);
+        this.router.navigate(["/dashboard"]);
       }
     )
     

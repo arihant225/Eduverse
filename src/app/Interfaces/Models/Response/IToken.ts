@@ -1,7 +1,7 @@
 export interface IToken {
     jwtToken: string;
     username: string;
-    expiration: Date;
+    expiration: string;
     email: string;
   }
   

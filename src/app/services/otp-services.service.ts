@@ -8,7 +8,7 @@ import { webConfig } from 'src/WebConfig';
   providedIn: 'root'
 })
 export class OtpService {
-  url:string=webConfig.EduverseWebApiUrl;
+ private url:string=webConfig.EduverseWebApiUrl;
 
   constructor(private httpClient:HttpClient) { 
   }

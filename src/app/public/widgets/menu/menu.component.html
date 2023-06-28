@@ -4,7 +4,7 @@ Eduverse
     </div>
  
     <div class="MenuItems">
-<ng-container *ngFor="let item of routesItems" >
+<ng-container *ngFor="let item of menuService.menuItems" >
         <div  *ngIf="!document.URL.includes(item.item_route)" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
         
     </ng-container>
@@ -16,7 +16,7 @@ Eduverse
     <div class="EduverseLogo">
         Eduverse
     </div>
-    <ng-container *ngFor="let item of routesItems" >
+    <ng-container *ngFor="let item of menuService.menuItems" >
     <div *ngIf="!document.URL.includes(item.item_route)" (click)="navigate(item)"  class="route-items"><span class="sidemenuItems">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
 </ng-container> 
 </div>

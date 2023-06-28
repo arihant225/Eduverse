@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMenuRoutes } from 'src/app/Interfaces/IMenuRoutes';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +11,11 @@ import { IMenuRoutes } from 'src/app/Interfaces/IMenuRoutes';
 })
 export class MenuComponent   {
   
-  constructor(private router:Router,@Inject(DOCUMENT) public document: Document ) {
-  
+  constructor(private router:Router,@Inject(DOCUMENT) public document: Document,public menuService:MenuService ) {
   }
 
   public sideMenuState:boolean=false;
-  public menuItems:IMenuRoutes[]=[{item:'login',item_route:'/login',icons:'bi bi-box-arrow-in-left'},{item:'Sign Up',item_route:'/signup',icons:'bi-database-add'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-brightness-alt-high'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
-  public routesItems:IMenuRoutes[]=this.menuItems
+
   toggleSideMenu(){
     this.sideMenuState=!this.sideMenuState
   }

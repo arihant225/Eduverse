@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuService } from './services/menu.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eduverse';
+  
+  constructor(public menuservice:MenuService,private userservice:UserService) {
+this.userservice.CheckAuthorize();
+  }
   
 }

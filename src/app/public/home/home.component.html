@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="Home">
-    
-   
+
+
 
 
     <div class="row  no-extra-margin">
@@ -39,24 +39,44 @@
             <div class="col-md-6 col-sm-6 place-left"><span id="right-triangle"></span></div>
             <div class="col-md-1 col-sm-1"></div>
             <div class="col-md-5 col-sm-5">
-                <div class="welcome-text">Welcome to Eduverse: Ignite Your Learning Journey</div>
+                <div class="welcome-text">Welcome <ng-container *ngIf="userService.IsAuthorize">Back,</ng-container> to
+                    Eduverse: <ng-container *ngIf="userService.IsAuthorize">Continue</ng-container><ng-container
+                        *ngIf="!userService.IsAuthorize">Ignite</ng-container> Your Learning Journey</div>
                 <div class="welcome-text-secondary">
-                    Unlock a world of exclusive benefits and personalized experiences - join us by logging in or signing
-                    up today!
+                    <ng-container *ngIf="!userService.IsAuthorize">
+                        Unlock a world of exclusive benefits and personalized experiences - join us by logging in or
+                        signing
+                        up today!
+                    </ng-container>
+                    <ng-container *ngIf="userService.IsAuthorize">
+                        Welcome back to our platform! We're delighted to have you here once again. Dive back in and
+                        continue your journey of discovery, connection, and growth. We're excited to see what new
+                        experiences and insights you'll bring to the community. Welcome back!
+                    </ng-container>
                 </div>
                 <div class="button-centeric">
-                    <button class="btn loginButton" routerLink='/login'>Login <i class="bi bi-arrow-right"></i></button>
+                    <ng-container *ngIf="userService.IsAuthorize">
+                        <button class="btn loginButton" routerLink='/login'>DashBoard <i
+                                class="bi bi-arrow-right"></i></button>
+                    </ng-container>
+                    <ng-container *ngIf="!userService.IsAuthorize">
+                        <button class="btn loginButton" routerLink='/login'><i class="bi bi-arrow-right"></i></button>
+                    </ng-container>
                 </div>
             </div>
             <div class="col-md-2 col-sm-2 welcomeline">
-            <div class="WelcomeStrikeOut">
-                
-            </div>
+                <div class="WelcomeStrikeOut">
+
+                </div>
             </div>
             <div class="col-sm-1 col-sm-1"></div>
             <div class="col-md-3 col-sm-4">
-                <div *ngFor="let item of routesItems" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}}</span><span><i class="bi bi-arrow-right"></i></span></div>
-           
+                <ng-container *ngFor="let item of routesItems">
+                    <div *ngIf="!(userService.IsAuthorize && item.item_route=='/signup' )"
+                        [routerLink]="item.item_route" class="route-items"><span
+                            class="route-items-child">{{item.item}}</span><span><i class="bi bi-arrow-right"></i></span>
+                    </div>
+                </ng-container>
             </div>
 
         </div>

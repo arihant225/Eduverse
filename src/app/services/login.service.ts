@@ -9,7 +9,7 @@ import { IToken } from '../Interfaces/Models/Response/IToken';
   providedIn: 'root'
 })
 export class LoginService {
-url:string=webConfig.EduverseWebApiUrl;
+  private url:string=webConfig.EduverseWebApiUrl;
   constructor(private http:HttpClient) { 
 
   }

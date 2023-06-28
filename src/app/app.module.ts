@@ -11,6 +11,8 @@ import { SignupComponent } from './public/signup/signup.component';
 import { SpinnersComponent } from './public/widgets/spinners/spinners.component';
 import { MenuComponent } from './public/widgets/menu/menu.component';
 import { LoginComponent } from './public/login/login.component';
+import { DashboardComponent } from './user/dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { LoginComponent } from './public/login/login.component';
     SpinnersComponent,
     MenuComponent,
     LoginComponent,
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
