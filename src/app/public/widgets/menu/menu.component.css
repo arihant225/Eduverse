@@ -8,6 +8,10 @@
     height: 75px;
     width: 100%;
 }
+.route-items-child{
+    font-size: 0.8rem;
+
+}
 .EduverseLogo{
     width: 30%;
     padding:20px;
@@ -28,7 +32,7 @@
 }
 .MenuItems div{
     background-color: rgb(0, 0, 0);
-    padding: 4px 20px;
+    padding: 2px 10px;
     margin: 20px;
     color: white;
     border-radius:30px ;
@@ -77,6 +81,7 @@
     height: 100vh;
     padding: 20px;
     display: none;
+    font-size: 0.9rem;
   
 
 }
@@ -91,12 +96,18 @@
     margin-bottom: 100px;
 }
 .openSideMenu .sidemenuItems{
-    margin:20px 60px 0px 20px;
+    margin:20px 30px 0px 20px;
   cursor: pointer;
     color: white;
     display: block;
     padding: 10px;
+    position: relative;
 
+
+}
+.openSideMenu .sidemenuItems i{
+    position: absolute;
+    right:10px;
 }
 .openSideMenu{
     display: block;
@@ -118,6 +129,60 @@
     padding: 0px;
 
 }
+.profile-options{
+background-color: black;
+border: none;
+font-size: 0.8rem;
+color:white;
+}
+.dropdown{
+
+    flex-direction: column;
+    position: absolute;
+    
+    width: 120px;
+    background: white !important;
+    display: none;
+    color: black !important;
+    right: -11px;
+    border-radius: 3px!important;
+    z-index: 5;
+}
+.visible{
+    display: flex;
+}
+
+.profile-options:hover{
+background-color: black!important;
+border: none;
+color:white !important;
+scale: 1 !important;
+}
+.profile-options i{
+    font-size: 14px;
+}
+.profile-options i:hover{
+    background-color: black!important;
+    border: none;
+    color:white !important;
+}
+.options{
+    height: 25px;
+    position: relative;
+    width: 100%;
+    margin: 5px;
+
+ }
+.options i{
+    position: absolute;
+    right:0px
+
+
+}
+.options:hover{
+    font-weight: bold;
+}
+
 .closeSideMenu .sidemenuItems{
     display: none;
 }

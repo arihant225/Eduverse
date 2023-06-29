@@ -8,6 +8,21 @@ Eduverse
         <div  *ngIf="!document.URL.includes(item.item_route)" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
         
     </ng-container>
+    <span #toggleButton  class="profile-options"  *ngIf="userService.IsAuthorize">
+    <ng-container  >    
+        <button class="profile-options" (click)="toggleProfileOptions=!toggleProfileOptions">
+            {{userService.userName}}
+            <i class="bi bi-three-dots-vertical"></i>
+            <div class="dropdown" [ngClass]="{visible:toggleProfileOptions}">
+
+                <span class="options">Setting &nbsp; <i class="bi bi-gear-fill"></i></span>
+                <span class="options">Profile &nbsp; <i class="bi bi-person-badge"></i></span>
+                <span class="options">Security  &nbsp; <i class="bi bi-shield-fill"></i></span>
+                <span class="options" (click)="logout()">Log Out  &nbsp; <i class="bi bi-box-arrow-right"></i></span>
+            </div>
+        </button>
+</ng-container>
+</span>
 </div>
     <div class="SideMenu-trigger sideview" (click)="toggleSideMenu()"><i *ngIf="sideMenuState" class="bi bi-chevron-bar-right"></i><i *ngIf="!sideMenuState" class="bi bi-list"></i></div>
 </div>
@@ -16,8 +31,19 @@ Eduverse
     <div class="EduverseLogo">
         Eduverse
     </div>
-    <ng-container *ngFor="let item of menuService.menuItems" >
+<ng-container *ngFor="let item of menuService.menuItems" >
     <div *ngIf="!document.URL.includes(item.item_route)" (click)="navigate(item)"  class="route-items"><span class="sidemenuItems">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
+</ng-container>
+    <ng-container *ngIf="userService.IsAuthorize">    
+     
+        <span class="route-items"><span class="sidemenuItems">Setting &nbsp; <i class="bi bi-gear-fill"></i></span></span>
+        <span class="route-items"><span class="sidemenuItems">Profile &nbsp; <i class="bi bi-person-badge"></i></span></span>
+        <span class="route-items"><span class="sidemenuItems">Security &nbsp; <i class="bi bi-shield-fill"></i></span></span>
+        <span class="route-items"><span class="sidemenuItems" (click)="logout()">Log Out &nbsp; <i class="bi bi-box-arrow-right"></i></span></span>
+          
+        
+
 </ng-container> 
+
 </div>
 </div>

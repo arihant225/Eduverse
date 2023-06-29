@@ -10,8 +10,8 @@ export class MenuService {
     this.menuItems=this.publicMenuItems;
   }
   public menuItems:IMenuRoutes[]=[];
-  private loggedInMenuItems:IMenuRoutes[]=[{item:'Dashboard',item_route:'/dashboard',icons:'bi-database-add'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-brightness-alt-high'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}];
-  private publicMenuItems:IMenuRoutes[]=[{item:'login',item_route:'/login',icons:'bi bi-box-arrow-in-left'},{item:'Sign Up',item_route:'/signup',icons:'bi-database-add'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-brightness-alt-high'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
+  private loggedInMenuItems:IMenuRoutes[]=[{item:'Dashboard',item_route:'/dashboard',icons:'bi-bar-chart-line-fill'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-globe-americas'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}];
+  private publicMenuItems:IMenuRoutes[]=[{item:'login',item_route:'/login',icons:'bi bi-box-arrow-in-left'},{item:'Sign Up',item_route:'/signup',icons:'bi-database-add'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-globe-americas'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
   public isVisible:boolean =true;
   login(){
     window.scrollTo(0,0);

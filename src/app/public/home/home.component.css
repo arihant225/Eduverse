@@ -173,11 +173,12 @@ box-shadow: none;
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 100px;
 
 }
 .home-content{
     background-color: rgb(256, 256, 256);
-    min-height: calc(100vh-100px);
+    min-height: calc(100vh);
     margin-top: 100px;
     margin-bottom:0px
 }
@@ -210,6 +211,7 @@ box-shadow: none;
 .welcome-text-secondary{
     color: black;
     margin-top: 50px;
+    
 }
 @media screen and (max-width:1300px) {
     .welcome-text{
@@ -218,6 +220,23 @@ box-shadow: none;
 
     .welcomeline{
         display: none;
+    }
+
+}
+@media screen and (max-width:575px) {
+    .welcome-text{
+        font-size: 1.7rem;
+    }
+
+    .welcomeline{
+        display: none;
+    }
+    #left-triangle{
+        display: none;
+    }
+    
+    #right-triangle{
+        top:-20px
     }
 
 }

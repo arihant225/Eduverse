@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { webConfig } from 'src/WebConfig';
 import { MenuService } from './menu.service';
@@ -10,21 +10,29 @@ import { MenuService } from './menu.service';
 })
 export class UserService {
   IsAuthorize:boolean=false;
+  userName:string|null=null;
 
 
-  constructor(private http: HttpClient, private router: Router,private menu:MenuService){
-
+  constructor(private http: HttpClient, private router: Router,private menu:MenuService,private activeUrl:ActivatedRoute){
   }
   public CheckAuthorize():Promise<boolean>
   {
     
-    return new Promise<boolean>((resolve,reject)=>{
   
+    return new Promise<boolean>((resolve,reject)=>{
+      if(localStorage.length==0)
+      {
+        this.IsAuthorize=false;
+        this.menu.loggedOut();
+        resolve(false);
+        return;
+      }
     if (!localStorage.getItem('token')) {
       this.menu.loggedOut();
       this.router.navigate(["/login"]);
       localStorage.clear();
       this.IsAuthorize=false;
+
       resolve(false);
     }
     else {
@@ -37,6 +45,7 @@ export class UserService {
         if (exp >now) {
           resolve(true)
           this.IsAuthorize=true;
+          this.userName=localStorage.getItem('username');
           this.menu.login();
           return;
 
@@ -59,6 +68,7 @@ export class UserService {
             this.menu.login();
             this.IsAuthorize=true;
             resolve(true);
+            this.userName=localStorage.getItem('username')
           }
         )
       }

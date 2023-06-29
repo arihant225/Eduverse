@@ -4,7 +4,7 @@
     aspect-ratio: 1.2/0.9;
 }
 .home{
-    z-index: 6;
+    z-index: 2;
     align-items: center;
     justify-content: center;
     font-weight: bolder;
@@ -18,23 +18,12 @@
     background-color: white;
     color: black;
 }
-.about-us-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    height: 100px;
-    color: whitesmoke;
-    font-size: 30px;
-    font-family: 'Montserrat Subrayada', sans-serif;
-}
+
 .about-us-Nav{
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100px;
+    padding: a;
     color: #f5f5f5;
     z-index: 1;
     background-color: black;
@@ -45,7 +34,7 @@
     position: fixed;
     top:60px;
     left:0px;
-    z-index: 10;
+    z-index: 2;
     
 }
 .nav-Buttons{
@@ -65,17 +54,31 @@
     color: beige;
 }
 .content{
-    padding: 30px;
+    padding-top: 15vh;
     font-size: 0.96rem;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    word-spacing: 1px;
+    text-align:justify ;
+
+
+
 }
 
 .content-img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     height: 100%;
-;
+}
+.content-img .img1{
+    height:40vh;   
+    border: 5px solid white;
+    position: relative;
+    left: 50px;
+    margin: 80px 20px 20px 0px;
 }
 .profile{
 margin-top: 70px;
@@ -101,11 +104,8 @@ margin-top: 70px;
 }
 .profile-img{
     border-radius: 0px;
-    border: #f5f5f5 4px solid;
-    width: 100%;
-
-
-    aspect-ratio: 3.5/3;
+    height: 40vh;
+    aspect-ratio: 2.8/3;
 
 }
 
@@ -127,36 +127,38 @@ a:hover {
 }
 .profile-descr{
 
-    border: white 2px solid;
-    height: 90%;
+    border: rgb(199, 184, 184) 1px solid;
     width: 100%;
     margin:20px,100px;
     position: relative;
+    border-radius: 3px;
 }
 .profile-container{
     display: flex;
     align-items: center;
     justify-content: center;
- height: 100%;
-    width: 100%;
-   
+    width: max-content;
+    max-width: 100%;
+
 }
 .skills{
-    display: flex;
+    display: flexbox;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-    background-color: #f5f5f5;
     height: 50px;
     margin-top:55px;
+    overflow: none;
+    text-align: justify;
 
   
 }
 .skills-child{
+display: inline-block;
 background-color: black;
 opacity:90%;
 color: white;
 padding: 4px 20px;
 border-radius: 30px;
 font-size: 0.7rem;
+margin: 10px;
 }

@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, Inject, OnChanges, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMenuRoutes } from 'src/app/Interfaces/IMenuRoutes';
 import { MenuService } from 'src/app/services/menu.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,11 +12,28 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class MenuComponent   {
   
-  constructor(private router:Router,@Inject(DOCUMENT) public document: Document,public menuService:MenuService ) {
-  }
+  @ViewChild('toggleButton') toggleButton:ElementRef|undefined;
 
+  constructor(private router:Router,@Inject(DOCUMENT) public document: Document,public userService:UserService,public menuService:MenuService,private renderer:Renderer2 ) {
+    
+
+ 
+    this.renderer.listen('window', 'click',(e:Event)=>{
+     
+      if(this.toggleButton&&!this.toggleButton.nativeElement.contains(e.target)) {
+          this.toggleProfileOptions=false;
+      }
+  });
+
+  }
+public logout(){
+  localStorage.clear();
+  this.router.navigate(["/home"])
+  this.userService.CheckAuthorize();
+}
   public sideMenuState:boolean=false;
 
+  public toggleProfileOptions:boolean=false;
   toggleSideMenu(){
     this.sideMenuState=!this.sideMenuState
   }

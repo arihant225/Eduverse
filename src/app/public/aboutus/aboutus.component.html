@@ -1,11 +1,6 @@
-<div class="no-extra-margin main-body">
+<div class="no-extra-margin main-body" id="web">
 
-    <div id="web" class="row web">
-        <div class="col-sm-12 col-md-12">
-            <div class="about-us-header">
-                ABOUT - US
-            </div>
-        </div>
+    <div  class="row web">
         <div class="col-sm-12 col-md-12">
             <div class="about-us-Nav" id="aboutusnav">
                 <button class="nav-Buttons" (click)="navigateTo('web')">web</button><button (click)="navigateTo('dev')" class="nav-Buttons">dev</button>
@@ -14,15 +9,8 @@
         </div>
     </div>
     
-    <div  class="row row-top">
+    <div  class="row">
         <div class="col-sm-12 col-md-1">
-        </div>
-
-
-        <div class="col-sm-12 col-md-4">
-            <div class="content-img">
-                <img src="assets/Edu.png" class="edu-png">
-            </div>
         </div>
         <div class="col-sm-12 col-md-6 content-about-us">
             <div class="content">
@@ -32,8 +20,7 @@
                 passionate subject expert, or a dedicated teacher, our website is the perfect place for you to reach out
                 to
                 a broader audience and make a significant impact.
-            </div>
-            <div class="content">
+           <br/>      <br/>
 
                 Through our intuitive streaming capabilities, educators can effortlessly create and deliver their
                 courses in
@@ -48,11 +35,19 @@
         </div>
         <div class="col-sm-12 col-md-1">
         </div>
-    </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="content-img">
+                <img src="assets/Edu.png" class="img1">
+            </div>
+        </div>
 
+        
+        <div class="col-sm-6 col-md-4">
+            <div class="content-img">
+                <img src="assets/aboutusBook.png" class="img1">
 
-
-    <div class="row row-top">
+            </div>
+        </div>
         <div class="col-sm-12 col-md-1">
         </div>
         <div class="col-sm-12 col-md-6 content-about-us">
@@ -65,8 +60,7 @@
                 communication skills, or diving into the depths of scientific concepts, our website offers a vast
                 catalog of
                 courses to cater to every learner's needs and interests.
-            </div>
-            <div class="content">
+                <br/>      <br/>
                 Our community-driven approach fosters collaboration and interaction between educators and learners.
                 Educators can receive feedback, answer questions, and engage in discussions, enabling a rich and
                 immersive
@@ -77,11 +71,6 @@
 
         </div>
 
-        <div class="col-sm-12 col-md-4">
-            <div class="content-img">
-                <img src="assets/Learner.png" class="edu-png">
-            </div>
-        </div>
         <div class="col-sm-12 col-md-1">
         </div>
     </div>
@@ -89,15 +78,13 @@
 
     <div id="dev" class="row profile dev no-extra-margin">
         <div  class="row row-top">
-        <div class="col-sm-12 col-md-1">
-        
-        </div>
-        <div class="col-sm-12 col-md-4">
+     
+        <div class="col-sm-4 col-md-4">
             <div class="content-img">
             <img src="assets/arihant.png" class="profile-img">
             </div>
         </div>
-        <div class="col-sm-12 col-md-6" >
+        <div class="col-sm-8 col-md-8" >
             <div class="profile-container">
             <div class="profile-descr">
             <div class="profile-name">ARIHANT JAIN</div>
@@ -105,13 +92,16 @@
                <span class="socialIcon"> <i class="bi bi-{{contact.socialHangout}}"></i> </span><a [href]="contact.socialUrl"  target="_blank" [innerHTML]="contact.SocialContent"></a>
 
 
-            </div>
-            <div class="skills col-md-12">
-                <span class="skills-child" *ngFor="let skill of skills" [innerHTML]="skill"></span>
 
             </div>
+           
+           <hr/>
+            <span class="skills-child" *ngFor="let skill of skills" [innerHTML]="skill"></span>
+
+     
             </div>
         </div>
+        
         </div>
         <div class="col-sm-12 col-md-1">
         </div>

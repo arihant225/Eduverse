@@ -56,11 +56,11 @@
                 </div>
                 <div class="button-centeric">
                     <ng-container *ngIf="userService.IsAuthorize">
-                        <button class="btn loginButton" routerLink='/login'>DashBoard <i
+                        <button class="btn loginButton" routerLink='/dashboard'>DashBoard <i
                                 class="bi bi-arrow-right"></i></button>
                     </ng-container>
                     <ng-container *ngIf="!userService.IsAuthorize">
-                        <button class="btn loginButton" routerLink='/login'><i class="bi bi-arrow-right"></i></button>
+                        <button class="btn loginButton" routerLink='/login'>Login<i class="bi bi-arrow-right"></i></button>
                     </ng-container>
                 </div>
             </div>

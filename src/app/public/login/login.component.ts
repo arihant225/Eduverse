@@ -49,7 +49,7 @@ public submitCredentials(){
         }
       },
       ()=>{
-        debugger;
+      
         localStorage.setItem("token",token.jwtToken);
         localStorage.setItem("expirationTime",token.expiration);
         localStorage.setItem("username",token.username);
