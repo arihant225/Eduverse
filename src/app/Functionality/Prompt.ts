@@ -7,6 +7,7 @@ import { SignupComponent } from "../public/signup/signup.component";
 import { SignupService } from "../services/signup.service";
 import { OnDestroy } from "@angular/core";
 import { ICredentials } from "../Interfaces/Models/Request/ICredentials";
+import { Router } from "@angular/router";
 
 export class UserPrompt  {
     public values: string[] = [];
@@ -18,7 +19,7 @@ export class UserPrompt  {
     public Otps={mail:false,phone:false}
     public readOnly:boolean[]=[ 
     ]
-    constructor(private otpServices:OtpService,private signupService:SignupService) {
+    constructor(private otpServices:OtpService,private signupService:SignupService,private router:Router) {
         for (let prompt of this.prompts) {
             this.values.push("");
             this.readOnly.push(false)
@@ -101,22 +102,23 @@ export class UserPrompt  {
             )
             return;
         }
-        else if(this.currentIndex>0)
-        {
-            this.readOnly[this.currentIndex]=true;
-        }
+
+        if (this.currentIndex >= 0 && this.checkError())
+        return;
+
+
         if(this.currentIndex==2&&this.Otps.mail)
         {
             this.currentIndex=3;
         }
-        else if(this.currentIndex==2)
+        if(this.currentIndex==2)
         {
            let canContinue= await this.signupService.canContinueWithEmail(this.controls[this.currentIndex].value);
            if(!canContinue)
            {
             if(confirm("OOPS!! It seems that you already have account with this email. Do you want to continue signing In with this email?"))
             {
-                alert("NAVIGATING..................")
+                this.router.navigate(['/login'])
             }
             else{
                 this.readOnly[this.currentIndex]=false;
@@ -132,7 +134,7 @@ export class UserPrompt  {
              
             if(confirm("OOPS!! It seems that you already have account with this Phone No. Do you want to continue signing In with this Phone No?"))
             {
-                alert("NAVIGATING..................")
+                this.router.navigate(['/login'])
             }
             else{
                 this.readOnly[this.currentIndex]=true;
@@ -159,8 +161,8 @@ export class UserPrompt  {
   
         
        
-        if (this.currentIndex >= 0 && this.checkError())
-            return;
+       
+
             this.readOnly[this.currentIndex]=true;
             this.errorPrompt.next(null)
        

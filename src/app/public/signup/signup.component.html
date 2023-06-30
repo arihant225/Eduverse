@@ -1,30 +1,36 @@
 <app-spinners *ngIf="Loader_text" [text]="Loader_text"></app-spinners>
 <div class="no-extra-margin">
-    <div class="signup-Container">
-        <div class="signup-main ">
+    <div>
+        <div>
             <div class="row ">
                 <div class="col-lg-6 col-md-12 div col-sm-12  centeric-container">
                     <div class="createAccounttext">
 
-                        Create an account<br />
-                        <div class="createAccounttextsecondary">- with Eduverse</div>
-
-                    </div >
+                        Create an account
+                    </div>
+                    <div class="HeaderText">
+                        WITH EDUVERSE
+                    </div>
+                    <div class="createAccountSubtext">One stop solution for boundless learning. Unify, innovate, and elevate education with our cutting-edge platform. Empower learners, shape the future, and transcend boundaries. Redefine your educational experience with us.</div>
+           
                     <div class="centeric-container">
-                    <div class="createaccountimage">
+
+                        <div class="createaccountimage">
                         <img src="assets/createaccountImage.png">
-                    </div>
-                    <div class="createaccountimagesecondary">
+                    
                         <img src="assets/createaccountImage2.png">
+                       
                     </div>
                     </div>
+
                 </div>
-                <div class="col-md-2  col-sm-1 col-lg-1"></div>
-                <div class="col-lg-5 col-md-8 col-sm-10 authenticateDiv">
+
+                
+                
+                <div class="col-lg-6 col-md-12 col-sm-12 authenticateDiv">
 
                     <div class="prompt">
                         <div class="promp-Ask">
-
                             <span [innerHTML]="prompt"></span> <span class="errorPrompt" *ngIf="errorPrompt"
                                 [innerHtml]="errorPrompt"></span><span class="blinkingCursor"></span>
 

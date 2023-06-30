@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserPrompt } from 'src/app/Functionality/Prompt';
 import { OtpService } from 'src/app/services/otp-services.service';
 import { SignupService } from 'src/app/services/signup.service';
@@ -14,9 +15,8 @@ export class SignupComponent implements OnInit {
   public errorPrompt: string | null = null;
   public signUpPrompts: UserPrompt;
   public promptInput = new FormControl("", []);
-  constructor(private formBuilder: FormBuilder, private otpService: OtpService,private signupService:SignupService) {
-    this.signUpPrompts = new UserPrompt(this.otpService,signupService);
-
+  constructor(private formBuilder: FormBuilder, private otpService: OtpService,private signupService:SignupService,public router:Router) {
+    this.signUpPrompts = new UserPrompt(this.otpService,signupService,this.router);
   }
 
   async ngOnInit(){
@@ -27,7 +27,6 @@ export class SignupComponent implements OnInit {
     })
     this.promptInput = this.signUpPrompts.controls[this.signUpPrompts.currentIndex];
     let inputPromptId = document.getElementById("input-prompt")
-    inputPromptId?.focus();
     inputPromptId?.click();
 
   }
@@ -38,9 +37,7 @@ export class SignupComponent implements OnInit {
     }
 
   }
-  public async next() {
-   this.signUpPrompts.readOnly[this.signUpPrompts.currentIndex]=true;
-   
+  public async next() { 
     if (this.signUpPrompts.currentIndex == 3) {
       let tempMessage=this.signUpPrompts.errorMessages[this.signUpPrompts.currentIndex];
       if (this.promptInput.value?.length!=6)
