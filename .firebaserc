@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "eduverse1802": {
+      "hosting": {
+        "eduverse": [
+          "eduverse1802"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "eduverse1802"
+  }
+}
