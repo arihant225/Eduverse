@@ -1,0 +1,33 @@
+.sideUserPreference{
+    position: fixed;
+    height: 100vh;
+    background-color: rgb(19, 22, 24);
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-right:20px ;
+  
+}
+.hideUserPreferenceText{
+    font-size: 0px;
+}
+.sideUserPreferenceItems-text{
+font-size: smaller;
+padding: 10px;
+padding-right: 30px;
+}
+.sideUserPreferenceItems{
+    color: white;
+    font-size:18px ;
+    padding: 15px;
+    margin: 2px;
+    position: relative;
+    cursor: pointer;
+}
+.sideUserPreferenceItems i{
+    color: white;
+    position: absolute;
+    right:1px
+
+  
+}

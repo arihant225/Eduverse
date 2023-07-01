@@ -12,16 +12,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MenuComponent   {
   
-  @ViewChild('toggleButton') toggleButton:ElementRef|undefined;
+  @ViewChild('sidemenu') menu:ElementRef|undefined;
+  
 
   constructor(private router:Router,@Inject(DOCUMENT) public document: Document,public userService:UserService,public menuService:MenuService,private renderer:Renderer2 ) {
     
 
  
     this.renderer.listen('window', 'click',(e:Event)=>{
-     
-      if(this.toggleButton&&!this.toggleButton.nativeElement.contains(e.target)) {
-          this.toggleProfileOptions=false;
+      if(this.menu&& this.menu.nativeElement.contains(e.target)) {
+      }
+      else{
+        this.sideMenuState=false;
       }
   });
 
@@ -35,7 +37,11 @@ public logout(){
 
   public toggleProfileOptions:boolean=false;
   toggleSideMenu(){
+   let interval= setInterval(()=>{
     this.sideMenuState=!this.sideMenuState
+ 
+    clearInterval(interval)
+  },0)
   }
   navigate(item:IMenuRoutes){
     this.router.navigate([item.item_route]);

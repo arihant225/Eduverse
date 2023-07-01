@@ -1,14 +1,19 @@
 <div class="Horizontal-Menu">
     <div class="EduverseLogo">
 Eduverse
+
     </div>
+   
  
     <div class="MenuItems">
+
+       
+
 <ng-container *ngFor="let item of menuService.menuItems" >
-        <div  *ngIf="!document.URL.includes(item.item_route)" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
+        <div  [ngClass]="{'active':document.URL.includes(item.item_route)}" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
         
     </ng-container>
-    <span #toggleButton  class="profile-options"  *ngIf="userService.IsAuthorize">
+    <span   class="profile-options"  *ngIf="userService.IsAuthorize">
     <ng-container  >    
         <button class="profile-options" (click)="toggleProfileOptions=!toggleProfileOptions">
             {{userService.userName}}
@@ -24,15 +29,18 @@ Eduverse
 </ng-container>
 </span>
 </div>
-    <div class="SideMenu-trigger sideview" (click)="toggleSideMenu()"><i *ngIf="sideMenuState" class="bi bi-chevron-bar-right"></i><i *ngIf="!sideMenuState" class="bi bi-list"></i></div>
+    <div class="SideMenu-trigger sideview"  ><i *ngIf="sideMenuState"  class="bi bi-chevron-bar-right"></i><i  *ngIf="!sideMenuState" (click)="toggleSideMenu()" class="bi bi-list"></i></div>
 </div>
-<div class="sideview">
+<div #sidemenu>
 <div class="SideMenu" [ngClass]="{openSideMenu:sideMenuState,closeSideMenu:!sideMenuState}">
     <div class="EduverseLogo">
         Eduverse
     </div>
+    <div class="sidemenuProfile">
+        {{userService.userName}}
+    </div>
 <ng-container *ngFor="let item of menuService.menuItems" >
-    <div *ngIf="!document.URL.includes(item.item_route)" (click)="navigate(item)"  class="route-items"><span class="sidemenuItems">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
+    <div    (click)="navigate(item)" class="route-items"><span class="sidemenuItems"  [ngClass]="{'active':document.URL.includes(item.item_route)}">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
 </ng-container>
     <ng-container *ngIf="userService.IsAuthorize">    
      

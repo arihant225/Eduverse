@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
 
 .login-container{
     width:500px;
@@ -21,7 +22,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Niconne', cursive;
     padding: 50px 0px w0px;
 }
 .form-control {
