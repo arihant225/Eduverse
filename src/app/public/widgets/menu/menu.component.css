@@ -53,7 +53,7 @@
 .route-items .active{
     scale: 1.03;
     background-color: white;
-    color: rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0)  !important;
 }
 .SideMenu-trigger{
     width: 70%;
@@ -164,11 +164,11 @@ color:white;
     position: absolute;
     
     width: 120px;
-    background: white !important;
+    background: white  ;
     display: none;
-    color: black !important;
+    color: black  ;
     right: -11px;
-    border-radius: 3px!important;
+    border-radius: 3px ;
     z-index: 5;
 }
 .visible{
@@ -176,18 +176,18 @@ color:white;
 }
 
 .profile-options:hover{
-background-color: black!important;
+background-color: black ;
 border: none;
-color:white !important;
-scale: 1 !important;
+color:white ;
+scale: 1  ;
 }
 .profile-options i{
     font-size: 14px;
 }
 .profile-options i:hover{
-    background-color: black!important;
+    background-color: black ;
     border: none;
-    color:white !important;
+    color:white ;
 }
 .options{
     height: 25px;

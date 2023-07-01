@@ -73,7 +73,7 @@ top:20vh
     color: rgb(226, 214, 214);
     border-radius: 100px;
     border: 1px rgb(196, 179, 179) solid;
-    box-shadow: none !important;
+    box-shadow: none  ;
     height:40px;
     font-weight: 300;
     display: inline-block;
@@ -86,7 +86,7 @@ top:20vh
     background-color: aquamarine;
     cursor: no-drop;
     border: 1px rgb(173, 167, 167) solid;
-    box-shadow: none !important;
+    box-shadow: none  ;
     background-color: rgba(102, 60, 60, 0.7);
    
 }

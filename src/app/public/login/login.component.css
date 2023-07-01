@@ -29,7 +29,7 @@
     min-width: 60%;
     border-radius: 30px;
     border: 2px rgb(255, 255, 255) solid;
-    box-shadow: none !important;
+    box-shadow: none  ;
     height:40px;
     font-weight: 500;
     display: inline-block;

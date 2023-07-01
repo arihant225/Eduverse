@@ -120,11 +120,11 @@ padding-bottom: 10px;
 
 }
 .metric-count:nth-child(1){
-    width: 18% !important;
+    width: 18%  ;
     
 }
 .metric-count:nth-child(3){
-    width: 18% !important;
+    width: 18%  ;
 }
 
 .meter{

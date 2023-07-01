@@ -62,6 +62,7 @@ export class UserService {
               this.IsAuthorize=false;
               resolve(false);
             }
+            resolve(false);
           },
 
           () => {
