@@ -158,17 +158,24 @@ border: none;
 font-size: 0.8rem;
 color:white;
 }
+.userName{
+    background-color: black;
+    color: white;
+    border: none;
+}
+.userName:hover{
+    background-color: black!important;
+    color: white!important;
+}
 .dropdown{
 
     flex-direction: column;
     position: absolute;
     
     width: 120px;
-    background: white  ;
     display: none;
-    color: black  ;
     right: -11px;
-    border-radius: 3px ;
+    border-radius: 3px!important ;
     z-index: 5;
 }
 .visible{
@@ -176,19 +183,13 @@ color:white;
 }
 
 .profile-options:hover{
-background-color: black ;
-border: none;
-color:white ;
+
 scale: 1  ;
 }
 .profile-options i{
     font-size: 14px;
 }
-.profile-options i:hover{
-    background-color: black ;
-    border: none;
-    color:white ;
-}
+
 .options{
     height: 25px;
     position: relative;

@@ -6,13 +6,14 @@ import { MenuService } from 'src/app/services/menu.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'app-menu', 
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent   {
   
   @ViewChild('sidemenu') menu:ElementRef|undefined;
+  @ViewChild('dropdown') profileoptions:ElementRef|undefined
   
 
   constructor(private router:Router,@Inject(DOCUMENT) public document: Document,public userService:UserService,public menuService:MenuService,private renderer:Renderer2 ) {
@@ -26,6 +27,13 @@ export class MenuComponent   {
         this.sideMenuState=false;
       }
   });
+  this.renderer.listen('window', 'click',(e:Event)=>{
+    if(this.profileoptions&& this.profileoptions.nativeElement.contains(e.target)) {
+    }
+    else{
+      this.toggleProfileOptions=false;
+    }
+});
 
   }
 public logout(){

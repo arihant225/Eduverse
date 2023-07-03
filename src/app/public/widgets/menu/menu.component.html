@@ -13,12 +13,12 @@ Eduverse
         <div  [ngClass]="{'active':document.URL.includes(item.item_route)}" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
         
     </ng-container>
-    <span   class="profile-options"  *ngIf="userService.IsAuthorize">
+    <span   class="profile-options"  *ngIf="userService.IsAuthorize" #dropdown>
     <ng-container  >    
-        <button class="profile-options" (click)="toggleProfileOptions=!toggleProfileOptions">
+        <button class="userName" (click)="toggleProfileOptions=!toggleProfileOptions">
             {{userService.userName}}
             <i class="bi bi-three-dots-vertical"></i>
-            <div class="dropdown" [ngClass]="{visible:toggleProfileOptions}">
+            <div class="dropdown" [ngClass]="{visible:toggleProfileOptions}" >
 
                 <span class="options">Setting &nbsp; <i class="bi bi-gear-fill"></i></span>
                 <span class="options">Profile &nbsp; <i class="bi bi-person-badge"></i></span>
