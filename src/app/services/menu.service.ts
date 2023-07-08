@@ -12,7 +12,7 @@ export class MenuService {
   public menuItems:IMenuRoutes[]=[];
   private loggedInMenuItems:IMenuRoutes[]=[{item:'Dashboard',item_route:'/dashboard',icons:'bi-bar-chart-line-fill'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-globe-americas'}];
   private publicMenuItems:IMenuRoutes[]=[{item:'login',item_route:'/login',icons:'bi bi-box-arrow-in-left'},{item:'Sign Up',item_route:'/signup',icons:'bi-database-add'},{item:'Become a Host',item_route:'/becomeahost',icons:'bi bi-broadcast'},{item:'About-us',item_route:'/aboutus',icons:'bi bi-globe-americas'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
-  public dashboardMenuItems:IMenuRoutes[]=[{item:'connect to Institute',icons:'bi bi-link-45deg',item_route:'/dashboard/connecttoInstitute'},{icons:'bi bi-compass',item:'explore-around',item_route:'/explore'},{item:'Quizes',item_route:'/dashboard/quizes',icons:'bi bi-journal-bookmark-fill'},{icons:'bi bi-pencil-square',item_route:'/dashboard/notes',item:'Notes'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
+  public dashboardMenuItems:IMenuRoutes[]=[{item:'Connect to Stream',icons:'bi bi-link-45deg',item_route:'/dashboard/connectToStreamer'},{icons:'bi bi-compass',item:'Explore-around',item_route:'/explore'},{item:'Quizes',item_route:'/dashboard/quizes',icons:'bi bi-journal-bookmark-fill'},{icons:'bi bi-pencil-square',item_route:'/dashboard/notes',item:'Notes'},{item:'Home',item_route:'/home',icons:'bi bi-house-heart-fill'}]
   public isVisible:boolean =true;
   login(){
     window.scrollTo(0,0);

@@ -8,9 +8,8 @@ Eduverse
     <div class="MenuItems">
 
        
-
 <ng-container *ngFor="let item of menuService.menuItems" >
-        <div  [ngClass]="{'active':document.URL.includes(item.item_route)}" [routerLink]="item.item_route" class="route-items"><span class="route-items-child">{{item.item}} &nbsp; <i [class]="item.icons"></i></span></div>
+        <span  [ngClass]="{'active':document.URL.includes(item.item_route),'menu-item':!document.URL.includes(item.item_route)}" [routerLink]="item.item_route" >{{item.item}} &nbsp; &nbsp; <i  [class]="item.icons"></i></span>
         
     </ng-container>
     <span   class="profile-options"  *ngIf="userService.IsAuthorize" #dropdown>
@@ -18,16 +17,19 @@ Eduverse
         <button class="userName" (click)="toggleProfileOptions=!toggleProfileOptions">
             {{userService.userName}}
             <i class="bi bi-three-dots-vertical"></i>
-            <div class="dropdown" [ngClass]="{visible:toggleProfileOptions}" >
-
-                <span class="options">Setting &nbsp; <i class="bi bi-gear-fill"></i></span>
-                <span class="options">Profile &nbsp; <i class="bi bi-person-badge"></i></span>
-                <span class="options">Security  &nbsp; <i class="bi bi-shield-fill"></i></span>
-                <span class="options" (click)="logout()">Log Out  &nbsp; <i class="bi bi-box-arrow-right"></i></span>
-            </div>
+           
         </button>
+        <div class="dropdown" [ngClass]="{visible:toggleProfileOptions}" >
+
+            <span class="options">Setting &nbsp; <i  class="bi bi-gear-fill"></i></span>
+            <span class="options">Profile &nbsp; <i class="bi bi-person-badge"></i></span>
+            <span class="options">Security  &nbsp; <i class="bi bi-shield-fill"></i></span>
+            <span class="options" (click)="logout()">Log Out  &nbsp; <i class="bi bi-box-arrow-right"></i></span>
+        </div>
 </ng-container>
+
 </span>
+
 </div>
     <div class="SideMenu-trigger sideview"  ><i *ngIf="sideMenuState"  class="bi bi-chevron-bar-right"></i><i  *ngIf="!sideMenuState" (click)="toggleSideMenu()" class="bi bi-list"></i></div>
 </div>

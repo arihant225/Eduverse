@@ -12,6 +12,8 @@ import { SpinnersComponent } from './public/widgets/spinners/spinners.component'
 import { MenuComponent } from './public/widgets/menu/menu.component';
 import { LoginComponent } from './public/login/login.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -26,6 +28,7 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
     MenuComponent,
     LoginComponent,
     DashboardComponent,
+    ConnectToStreamComponent,
 
   ],
   imports: [
@@ -34,7 +37,7 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

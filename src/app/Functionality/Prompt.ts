@@ -8,6 +8,7 @@ import { SignupService } from "../services/signup.service";
 import { OnDestroy } from "@angular/core";
 import { ICredentials } from "../Interfaces/Models/Request/ICredentials";
 import { Router } from "@angular/router";
+import { BackdropnotifierService } from "../services/backdropnotifier.service";
 
 export class UserPrompt  {
     public values: string[] = [];
@@ -19,7 +20,7 @@ export class UserPrompt  {
     public Otps={mail:false,phone:false}
     public readOnly:boolean[]=[ 
     ]
-    constructor(private otpServices:OtpService,private signupService:SignupService,private router:Router) {
+    constructor(private otpServices:OtpService,private signupService:SignupService,private router:Router,private backdropNotifier:BackdropnotifierService) {
         for (let prompt of this.prompts) {
             this.values.push("");
             this.readOnly.push(false)
@@ -81,6 +82,7 @@ export class UserPrompt  {
     }
     public async next() {
         if (this.currentIndex >= this.prompts.length - 1) {
+           this.backdropNotifier.text="Kindly wait we are setting up the account for you."
             let credential:ICredentials={
                 Name:this.controls[1].value,
                 EmailId:this.controls[2].value,
@@ -92,13 +94,16 @@ export class UserPrompt  {
             this.signupService.createCredentials(credential).subscribe(
                 data=>{
                     if(data){
-                        alert("account Created")
+                      
                     }
                 },
                 error=>{
                 
+                },
+                ()=>{
+                    this.backdropNotifier.text=null;
+                    this.router.navigate(["/login"])
                 }
-
             )
             return;
         }
@@ -158,11 +163,6 @@ export class UserPrompt  {
         this.errorPrompt=new Subject<string|null>();
  
         this.currentPrompt=new Subject<string>();
-  
-        
-       
-       
-
             this.readOnly[this.currentIndex]=true;
             this.errorPrompt.next(null)
        
@@ -241,7 +241,7 @@ export class UserPrompt  {
 
     }
     async generateOtpForMail():Promise<any>{
-        this.readOnly[this.currentIndex]=true;
+        
         let body:IOtpRequest={
             Id:this.controls[2].value,
             UserName:this.controls[1].value,

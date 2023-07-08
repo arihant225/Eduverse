@@ -24,6 +24,11 @@ padding-right: 30px;
     position: relative;
     cursor: pointer;
 }
+.sideUserPreferenceItems :hover{
+color: rgb(245, 193, 130);
+    font-weight: bolder;
+   
+}
 .sideUserPreferenceItems i{
     color: white;
     position: absolute;

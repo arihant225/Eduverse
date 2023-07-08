@@ -1,2 +1,3 @@
 <app-menu *ngIf="menuservice.isVisible"></app-menu>
+<app-spinners *ngIf="backdropNotifier.text" [text]="backdropNotifier.text"></app-spinners>
 <router-outlet></router-outlet>

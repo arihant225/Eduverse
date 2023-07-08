@@ -7,6 +7,7 @@ import { LoginComponent } from './public/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { CanactivateService } from './services/guards/canactivate.service';
+import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,9 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent,pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch:'full'},
   {path:'login',component:LoginComponent,pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent,pathMatch:'full',canActivate:[CanactivateService]},
+  {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
+    {path:'connectToStreamer',component:ConnectToStreamComponent}
+  ]},
   {path:'',component:HomeComponent,pathMatch:'full'},
 
 ];
