@@ -27,8 +27,15 @@ color:white;
     border: solid white 1px;
     margin: 20px;
     border-radius: 30px;
-
 }
+.standardTop{
+    top:80px
+}
+.dashboardStandards{
+    left:50px;
+    width: calc(100% - 55px) !important;
+}
+
 .socialIcon{
     margin-right:30px ;
     font-size: medium;

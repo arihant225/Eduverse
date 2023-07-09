@@ -8,8 +8,8 @@
     top:0;
     height: 75px;
     width: 100%;
-    padding: 30px;
-    cursor: pointer;
+    padding: 0px 50px;
+
 }
 
 .EduverseLogo{
@@ -20,6 +20,7 @@
     color: white;
     font-size:1.8rem;
     font-family: 'Bacasime Antique', serif;
+    cursor: pointer;
 
 }
 .MenuItems{
@@ -38,6 +39,7 @@
     margin: 10px;
     padding: 6px 14px;
     margin: 20px;
+    cursor: pointer;
 }
  .menu-item:hover{
     scale: 1.03;
@@ -176,6 +178,7 @@ color:white;
     margin: 10px;
     padding: 6px 14px;
     margin: 20px;
+    cursor: pointer;
 }
 .userName:hover{
     background-color: black;

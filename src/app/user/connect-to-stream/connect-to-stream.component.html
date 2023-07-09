@@ -1,1 +1,20 @@
-<p>connect-to-stream works!</p>
+<div class="carousel-slider">
+    <div (hover)="sliderIndex=i" class="streamer carousel-item" *ngFor="let slide of slides;let i=index"
+        [ngClass]="{'activeSlide':i==sliderIndex}">
+        <div class="background-drop">
+            <div class="slide-header">
+                {{slide.name}}
+                <div class="slider-button">
+                    <button>Explore now</button>
+                </div>
+                <div class="slide-text">{{slide.text}}</div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="slider-nav-block">
+    <p>
+    <span (click)="sliderIndex=i" [ngClass]="{'slider-nav':i!=sliderIndex,'slider-nav-active':i==sliderIndex}"  *ngFor="let slide of slides;let i=index">&nbsp;</span>
+    </p>
+</div>

@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+.carousel-slider{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  
+}
+.slide-header{
+    padding-top: 60px ;
+    padding-left: 40px;
+    font-size: 3rem;
+    font-family: 'Koulen', cursive;
+    color: black;
+}
+.streamer{
+    background-size: cover;
+    background-size: 100% 100%;
+
+}
+.slider-nav-block{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-around;
+    
+    
+}
+.slider-nav-block p{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+   
+
+
+}
+.slider-nav{
+background-color: aliceblue;
+height: 5px;
+width: 5px;
+display: inline-block;
+border-radius : 5px ;
+margin: 0px 15px;
+}
+.slider-nav-active{
+    background-color: aliceblue;
+    height:8px;
+    width: 8px;
+    display: inline-block;
+    border-radius : 8px ; 
+    margin: 0px 15px;  
+}
+.slider-button{
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 100px;
+    font-family: 'Vollkorn', serif;
+  
+}
+.slide-header button{
+justify-self: right;
+position: absolute;
+right: 30px;
+border: 1px solid black;
+border-radius: 30px;
+background-color: black;
+color: white;
+padding: 5px 20px;
+
+}
+.slide-text{
+    font-family: 'Vollkorn', serif;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: 30px;
+    padding: 10px;
+}
+.background-drop{
+    background-color:white;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.carousel-item{
+    display: none;
+    border-radius: 10px;
+    min-width: 97%;
+    margin:1.5%;
+    height: 45vh;
+}
+
+.carousel-item:hover{
+    display: block;
+    scale: 1.03;
+}
+
+@keyframes sliding-effect-next {
+    0%{
+        translate: 103%;
+    }
+    5%{
+        translate: 0%;
+    }
+
+    90%{
+        translate: 0%;
+    }
+    100%{
+        translate: 0%;
+    }
+    
+}
+@keyframes sliding-effect-prev {
+    0%{
+        display: inline-block;
+        translate: 0%;
+    }
+    5%{
+        translate: -103%;  
+    }
+    11%{
+        display: none;
+    }
+    
+}
+
+.activeSlide{
+    animation: sliding-effect-next 8s  infinite;
+    
+    display: inline-block;
+}
