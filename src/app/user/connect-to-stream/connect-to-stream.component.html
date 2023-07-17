@@ -4,17 +4,42 @@
         <div class="background-drop">
             <div class="slide-header">
                 {{slide.name}}
-                <div class="slider-button">
-                    <button>Explore now</button>
+
+                <div class="slider-text">
+        <p *ngIf="slide.paid">{{slide.price}}</p>        
+        
+        <p>{{slide.text|lowercase}}</p>
                 </div>
-                <div class="slide-text">{{slide.text}}</div>
             </div>
         </div>
-        
     </div>
 </div>
 <div class="slider-nav-block">
     <p>
     <span (click)="sliderIndex=i" [ngClass]="{'slider-nav':i!=sliderIndex,'slider-nav-active':i==sliderIndex}"  *ngFor="let slide of slides;let i=index">&nbsp;</span>
     </p>
+</div>
+<div class="standardDiv">
+<div class="row">
+    <div class="col-md-4">
+        <input class="form-control" #search (keyup)="find(search.value)" placeholder="try to search for an stream....">
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of streamToShow">
+        <div class="card" id="card">
+            <div class="card-title">
+                {{item.streamerName}}
+            </div>
+            <div class="card-money">
+                {{item.price|currency :'INR'}}/Month
+            </div>
+            <div class="card-description">
+                {{item.streamerDescription}}
+                
+            </div>
+        </div>       
+    </div>
+</div>
+
 </div>

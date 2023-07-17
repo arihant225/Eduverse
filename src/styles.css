@@ -35,7 +35,10 @@ color:white;
     left:50px;
     width: calc(100% - 55px) !important;
 }
-
+.standardDiv{
+    width: 100%;
+    position: relative;
+}
 .socialIcon{
     margin-right:30px ;
     font-size: medium;
@@ -46,3 +49,4 @@ top:0;
 bottom: 0;
 background-color: black;
 }
+

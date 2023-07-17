@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { IStreams } from 'src/app/Interfaces/Models/Response/IStreams';
+import {  streamService } from 'src/app/services/stream.service';
 
 @Component({
   selector: 'app-connect-to-stream',
@@ -7,61 +9,69 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectToStreamComponent implements OnInit {
 
+  constructor(private dashboardService:streamService,private renderer:Renderer2){
+
+  }
+
 sliderIndex:number=0
-slides:any[]=[{
-  text:"Join the stream for free to engage in multiple Tech discussion, and enhance your knowledge.",
-  paid:false,
-  amount:0,
-  name:"Evolve and Discuss",
-  poster:false
-
-},
-{
-  text:"Join the stream if you are looking for ultimate hub of JEE Hub .",
-  paid:false,
-  amount:0,
-  name:"JEE with Eduverse",
-  poster:false
-
-},
-{
-  text:"Join the stream if you are looking for ultimate hub of NEET Hub .",
-  paid:false,
-  amount:0,
-  name:"NEET with Eduverse",
-  poster:false
-
-},
-{
-  text:"Join the stream for multiple quizes.",
-  paid:false,
-  amount:0,
-  name:"QUIZ with Eduverse",
-  poster:false
-
-},
-
-{
-  text:"Access the stream for free to engage in multiple Tech discussion, and enhance your knowledge.",
-  paid:false,
-  amount:0,
-  name:"Ed and Tech",
-  poster:false
-
-}
-]
-constructor(){
-  
-  
-}
+slides:any[]=[]
+streams:IStreams[]=[];
+streamToShow:IStreams[]=[]
 ngOnInit(): void {
+  this.dashboardService.getAllStreams().subscribe(data=>{
+    data.forEach(res=>{
+      if(res.public==2)
+    {
+
+      this.slides.push(
+        {
+          text:res.streamerDescription,
+          paid:res.paid,
+          amount:res.price,
+          name:res.streamerName,
+          poster:res.image,
+        }
+      )
+      
+
+
+    }
+    else{
+      this.streams.push(res);
+    }
   
-  setInterval(() => {
-    if(this.sliderIndex>=this.slides.length-1)
-    this.sliderIndex=0;
-    else
-    this.sliderIndex++;
-  }, 8000);
+  })
+    
+  },
+  null,
+  ()=>{
+
+   
+    setInterval(() => {
+      if(this.sliderIndex>=this.slides.length-1)
+      this.sliderIndex=0;
+      else
+      this.sliderIndex++;
+    }, 8000);
+    this.streamToShow=this.streams;
+    
+
+  }
+) 
+}
+
+
+
+find(val:string)
+{
+  if(!val&&val=="")
+  {
+    this.streamToShow=this.streams;
+    return 
+  }
+  else{
+    this.streamToShow=this.streams.filter(ele=>ele.streamerName.includes(val)||ele.streamerDescription.includes(val));
+  }
   
 }
 }
