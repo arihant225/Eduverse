@@ -1,0 +1,53 @@
+.slider{
+    border: 1px white solid;
+    width: 50px;
+    content: '';
+    display: inline-block;
+    height: 25px;
+    border-radius: 30px;
+    position: relative;
+}
+.contain{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.slide-Cursor{
+    height: 25px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    position: absolute;
+    background-color: white;
+    color: white;
+}
+.deny{
+animation: denyanimate 0.3s ease-in;
+left:0px
+}
+@keyframes acceptanimate {
+    0%{
+        left:0px;
+    }
+    100%{
+        right:0px;
+    }
+}
+
+@keyframes denyanimate {
+    0%{
+        right:0px;
+    }
+    100%{
+        left:0px;
+    }
+}
+.accept{
+   
+    animation: acceptanimate 0.3s ease-out;
+    right: 0px;
+ 
+}
+.contain span{
+    margin: 10px ;
+}

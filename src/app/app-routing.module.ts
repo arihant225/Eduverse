@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { CanactivateService } from './services/guards/canactivate.service';
 import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
+import { NotesComponent } from './user/notes/notes.component';
+import { NewnotesComponent } from './user/newnotes/newnotes.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path:'home',component:HomeComponent,pathMatch:'full'},
   {path:'login',component:LoginComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
-    {path:'connectToStreamer',component:ConnectToStreamComponent}
+    {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
+    {path:'notes',component:NotesComponent,pathMatch:'full'},
+    {path:'newnotes',component:NewnotesComponent,pathMatch:'full'}
   ]},
   {path:'',component:HomeComponent,pathMatch:'full'},
 

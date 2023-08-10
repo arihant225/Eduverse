@@ -24,6 +24,7 @@
     
     
 }
+
 .slider-nav-block p{
     display: flex;
     align-items: center;
@@ -149,6 +150,7 @@ margin: 0px 15px;
     margin: 30px;
     aspect-ratio: 1/1;
     position: relative;
+    
 }
 .card-title{
     font-size: 1.2rem;
@@ -162,8 +164,10 @@ margin: 0px 15px;
 }
 .card:hover{
     scale: 1.05;
+    box-shadow: white 1px 1px 12px ;
 }
 .card-money{
 margin-top: 30px;
 color: bisque;
 }
+

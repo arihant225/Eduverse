@@ -11,6 +11,7 @@ import { MenuService } from './menu.service';
 export class UserService {
   IsAuthorize:boolean=false;
   userName:string|null=null;
+  firstName:string|null|undefined=null;
 
 
   constructor(private http: HttpClient, private router: Router,private menu:MenuService,private activeUrl:ActivatedRoute){
@@ -46,6 +47,7 @@ export class UserService {
           resolve(true)
           this.IsAuthorize=true;
           this.userName=localStorage.getItem('username');
+          this.firstName=localStorage.getItem('username')?.split(" ")[0];
           this.menu.login();
           return;
 
@@ -70,6 +72,7 @@ export class UserService {
             this.IsAuthorize=true;
             resolve(true);
             this.userName=localStorage.getItem('username')
+            this.firstName=localStorage.getItem('username')?.split(" ")[0];
           }
         )
       }

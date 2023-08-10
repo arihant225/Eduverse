@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { IStreams } from 'src/app/Interfaces/Models/Response/IStreams';
+import { Globalservice } from 'src/app/services/globalservice.service';
 import {  streamService } from 'src/app/services/stream.service';
 
 @Component({
@@ -25,6 +26,7 @@ ngOnInit(): void {
 
       this.slides.push(
         {
+          
           text:res.streamerDescription,
           paid:res.paid,
           amount:res.price,
@@ -36,17 +38,24 @@ ngOnInit(): void {
 
 
     }
-    else{
+
       this.streams.push(res);
-    }
+      
+    
   
   })
     
   },
   null,
   ()=>{
-
-   
+this.streams.forEach(res=>
+  {
+    res.color={
+      rgb:`rgba(${Math.floor(Math.random()*124)},${Math.floor(Math.random()*124)},${Math.floor(Math.random()*124)},0.8)`
+    }
+  }
+)
+this.streams.sort((a,b)=>a.price>b.price?-1:1)
     setInterval(() => {
       if(this.sliderIndex>=this.slides.length-1)
       this.sliderIndex=0;

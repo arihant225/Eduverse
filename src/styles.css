@@ -50,3 +50,8 @@ bottom: 0;
 background-color: black;
 }
 
+
+.lightMode{
+    background-color: rgb(255, 253, 253);
+    color: black!important;
+}

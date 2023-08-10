@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { LoginComponent } from './public/login/login.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NotesComponent } from './user/notes/notes.component';
+import { NewnotesComponent } from './user/newnotes/newnotes.component';
+import { BooleanSliderComponent } from './public/widgets/boolean-slider/boolean-slider.component';
 
 
 
@@ -29,13 +32,17 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     LoginComponent,
     DashboardComponent,
     ConnectToStreamComponent,
+    NotesComponent,
+    NewnotesComponent,
+    BooleanSliderComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]

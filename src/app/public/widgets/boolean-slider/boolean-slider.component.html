@@ -1,0 +1,12 @@
+<div class="contain">
+    <span>
+        {{deny}}
+</span>
+<span class="slider" (click)="lockPreference()">
+    <div class="slide-Cursor"[ngClass]="{'accept':userPreferences,'deny':!userPreferences}" ></div>
+</span>
+<span>
+    {{accept}}
+
+</span>
+</div>

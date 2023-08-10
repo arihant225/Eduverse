@@ -1,3 +1,5 @@
+import { Icolor } from "../../IColor";
+
 export interface IStreams {
     streamerId: number;
     streamerName: string;
@@ -6,5 +8,6 @@ export interface IStreams {
     image: string | null;
     streamerDescription: string;
     paid:boolean;
-    price:number
+    price:number;
+    color:Icolor|null;
   }

@@ -1,0 +1,35 @@
+<div class="settings">
+    <div class="tag">
+        <app-boolean-slider accept="Write" deny="Read" [userPreferences]="write"
+            (newPreference)="changePreference($event)"></app-boolean-slider>
+    </div>
+
+</div>
+
+<ng-container *ngIf="write">
+    <div class="Head-parent">
+    <div class="toolbar">
+        font-style: <select  [(ngModel)]="fontStyleIndex" #fontRef (change)="changeFont(fontRef.value)">
+            <option [ngStyle]="{fontFamily:style.fontFamily}" [value]="i"
+                *ngFor="let style of fontStyles;let i=index">{{style.name}}</option>
+        </select> &nbsp; &nbsp;
+
+    </div>
+    <div class="noteHead" id="noteHead" [innerHTML] ="title" (blur)="title=headRef.innerHTML" contenteditable="true"
+        #headRef (focus)="activeElement('noteHead')">
+
+    </div>
+
+    <div class="noteBody" id="noteBody" [innerHTML]="body" contenteditable="true" (blur)="body=bodyref.innerHTML" #bodyref
+        (focus)="activeElement('noteBody')">
+    </div>
+</div>
+</ng-container>
+<ng-container *ngIf="!write">
+    <div class="noteHead" style="cursor:default;" [innerHTML]="title">
+
+    </div>
+    <div class="noteBody" style="cursor: default;" [innerHTML]="body">
+
+    </div>
+</ng-container>

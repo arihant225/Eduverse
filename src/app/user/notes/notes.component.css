@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+.greetings{
+    width: calc(50% - 30px) ;
+    margin: 15px;
+    padding: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    display: inline-block;
+    height: 30vh;
+    position: relative;
+
+}
+@media screen and (max-width:1300px) {
+    .greetings{
+        width: calc(100% - 30px) ;
+    }
+}
+.userName{
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+.greetings:nth-child(2){
+padding: 5%;
+}
+.greetings:nth-child(2) .date{
+    font-size: 1.7rem;    
+}
+
+hr{
+    border:white solid 1px;
+    
+}
+.greetings img{
+    position: absolute;
+    height: 90%;
+    aspect-ratio: 1/1;
+    top:0px;
+    right: 0px;
+    border: 2px solid white;
+    border-radius: 5px;
+
+
+} 
+button{
+    background-color: black;
+    color: white;
+    border: white solid 1px;
+    padding: 7px 20px;
+    margin:9px;
+
+}
+button:hover{
+    
+    border: rgb(122, 103, 103) solid 1px;
+
+    background-color: white;
+    color: black;
+    
+}
+button:active{
+    border: rgb(122, 103, 103) solid 1px;
+   
+}
+
+.form-control {
+    min-width: 60%;
+    border-radius: 30px;
+    border: 1px rgb(255, 255, 255) solid;
+    box-shadow: none  ;
+    height:40px;
+    font-weight: 500;
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: black;
+    color: white;
+}
+.form-control::placeholder{
+    color: blanchedalmond;
+}

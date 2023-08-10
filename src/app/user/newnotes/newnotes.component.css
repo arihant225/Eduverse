@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+.noteBody{
+  
+    min-height: 50vh;
+    margin: 40px;
+    cursor:text;
+    padding: 30px;
+    font-size: 1rem;
+    font-family: 'Mate SC', serif;
+  
+ 
+}
+select{
+    background-color: black;
+    color: #f7f7f7;
+    border: none;
+    padding: 3px 20px;
+    border-radius: 6px
+}
+select:focus-visible,select:active,select:focus,select:checked{
+    border:none;
+    box-shadow: none;
+}
+.toolbar{
+    width: 100%;
+    padding: 10px;
+    border: 1px  solid white ;
+visibility: hidden;
+font-family: 'Mate SC', serif;
+}
+.Head-paren{
+    position: relative;
+    height:min-content;
+}
+.Head-parent:focus-within .toolbar{
+    visibility: inherit;
+}
+.noteHead:focus{
+    border: 1px solid gray;
+}
+.noteHead{
+
+
+    margin: 40px;
+    cursor:text;
+    padding: 30px;
+    font-size: 1rem;
+    font-family: 'Mate SC', serif;
+
+}
+
+.noteBody:focus-visible{
+    border: none;
+
+}

@@ -1,7 +1,7 @@
-<div class="carousel-slider">
+<div class="carousel-slider" >
     <div (hover)="sliderIndex=i" class="streamer carousel-item" *ngFor="let slide of slides;let i=index"
         [ngClass]="{'activeSlide':i==sliderIndex}">
-        <div class="background-drop">
+        <div class="background-drop" >
             <div class="slide-header">
                 {{slide.name}}
 
@@ -27,12 +27,14 @@
     <div class="col-md-4"></div>
     <div class="col-md-4"></div>
     <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of streamToShow">
-        <div class="card" id="card">
+        <div class="card" id="card" [ngStyle]="{'background-color':item.color?.rgb}">
             <div class="card-title">
                 {{item.streamerName}}
             </div>
             <div class="card-money">
-                {{item.price|currency :'INR'}}/Month
+                {{item.price|currency :'INR'}}/Month &nbsp;
+                {{item.color?.rgba}}
+
             </div>
             <div class="card-description">
                 {{item.streamerDescription}}
