@@ -20,7 +20,10 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
     {path:'notes',component:NotesComponent,pathMatch:'full'},
-    {path:'newnotes',component:NewnotesComponent,pathMatch:'full'}
+    {path:'newnotes/:id',component:NewnotesComponent,pathMatch:'full'},
+    {path:'veiwnotes/:id',component:NewnotesComponent,pathMatch:'full'},
+    {path:'editnotes/:id',component:NewnotesComponent,pathMatch:'full'},
+    {path:'newnotes',component:NewnotesComponent,pathMatch:'full'},
   ]},
   {path:'',component:HomeComponent,pathMatch:'full'},
 

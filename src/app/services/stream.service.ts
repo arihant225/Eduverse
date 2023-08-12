@@ -9,14 +9,14 @@ import {IStreams} from '../Interfaces/Models/Response/IStreams'
 })
 export class streamService {
   private token:string|null= localStorage.getItem("token");
-  private httpHeadrs: HttpHeaders = new HttpHeaders({'Content-Type':'application/json; charset=utf-8','Authorization': `Bearer ${this.token}` });
+  private httpHeaders: HttpHeaders = new HttpHeaders({'Content-Type':'application/json; charset=utf-8','Authorization': `Bearer ${this.token}` });
   private url:string=webConfig.EduverseWebApiUrl;
 
   constructor(private httpClient:HttpClient) { }
 
 
   public getAllStreams():Observable<IStreams[]>{
-   return this.httpClient.get<IStreams[]>(`${this.url}Streams/getAllStream`,{headers:this.httpHeadrs});
+   return this.httpClient.get<IStreams[]>(`${this.url}Streams/getAllStream`,{headers:this.httpHeaders});
   }
 
 }

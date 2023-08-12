@@ -1,9 +1,22 @@
 <div class="settings">
-    <div class="tag">
+    <span >
         <app-boolean-slider accept="Write" deny="Read" [userPreferences]="write"
             (newPreference)="changePreference($event)"></app-boolean-slider>
+    </span>
+    <span class="notesAction">
+    <span>
+        <app-boolean-slider accept="" deny="private" [userPreferences]="isPrivate"
+            (newPreference)="isPrivate=!isPrivate"></app-boolean-slider>
+    </span>
+    <div class="Action" (click)="saveNotes()">
+        <span>
+            <i class="bi bi-cloud-arrow-up-fill"></i>
+        </span>
+            <span>
+                Save
+            </span>
     </div>
-
+    </span>
 </div>
 
 <ng-container *ngIf="write">
@@ -12,7 +25,13 @@
         font-style: <select  [(ngModel)]="fontStyleIndex" #fontRef (change)="changeFont(fontRef.value)">
             <option [ngStyle]="{fontFamily:style.fontFamily}" [value]="i"
                 *ngFor="let style of fontStyles;let i=index">{{style.name}}</option>
-        </select> &nbsp; &nbsp;
+        </select> &nbsp; &nbsp;        &nbsp; &nbsp;       &nbsp; &nbsp;
+        font-size: <select  [(ngModel)]="fontSize" #fontSizeRef (change)="changeFontSize(fontSizeRef.value)">
+            <option  [value]="i"
+                *ngFor="let size of fontSizes;let i=index" [value]="size+'px'">{{size}}</option>
+        </select>
+        &nbsp; &nbsp;        &nbsp; &nbsp;
+
 
     </div>
     <div class="noteHead" id="noteHead" [innerHTML] ="title" (blur)="title=headRef.innerHTML" contenteditable="true"
@@ -26,10 +45,10 @@
 </div>
 </ng-container>
 <ng-container *ngIf="!write">
-    <div class="noteHead" style="cursor:default;" [innerHTML]="title">
+    <div  class="noteHead" id="noteHead" style="cursor:default;" [innerHTML]="title">
 
     </div>
-    <div class="noteBody" style="cursor: default;" [innerHTML]="body">
+    <div class="noteBody"  id="noteBody" style="cursor: default;" [innerHTML]="body">
 
     </div>
 </ng-container>

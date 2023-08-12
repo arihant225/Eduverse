@@ -10,6 +10,42 @@
   
  
 }
+.Action{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: min-content;
+
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.Action:hover{
+    scale: 1.1;
+    border: 0.3px solid rgb(117, 114, 114);
+}
+.settings{
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    grid-template-columns: 70% 30%;
+}
+.color{
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    position: relative;
+    top:4px
+
+}
+.color:active,:hover,:focus{
+    
+    box-shadow: none;
+
+}
 select{
     background-color: black;
     color: #f7f7f7;
@@ -25,8 +61,7 @@ select:focus-visible,select:active,select:focus,select:checked{
     width: 100%;
     padding: 10px;
     border: 1px  solid white ;
-visibility: hidden;
-font-family: 'Mate SC', serif;
+    font-family: 'Mate SC', serif;
 }
 .Head-paren{
     position: relative;
@@ -39,17 +74,23 @@ font-family: 'Mate SC', serif;
     border: 1px solid gray;
 }
 .noteHead{
-
-
     margin: 40px;
     cursor:text;
     padding: 30px;
     font-size: 1rem;
     font-family: 'Mate SC', serif;
-
 }
 
 .noteBody:focus-visible{
     border: none;
 
+}
+.notesAction{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+.notesAction span{
+    margin: 0px 10px;
 }

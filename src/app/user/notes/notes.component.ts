@@ -19,7 +19,6 @@ this.time=new Date();
     },1000)
   }
   newNote(){
-
     this.router.navigate(["/dashboard/newnotes"],{queryParams:{editable:true}})
   }
 }
