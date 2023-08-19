@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotesComponent } from './notes.component';
+import { PopupbodyComponent } from './popupbody.component';
 
-describe('NotesComponent', () => {
-  let component: NotesComponent;
-  let fixture: ComponentFixture<NotesComponent>;
+describe('PopupbodyComponent', () => {
+  let component: PopupbodyComponent;
+  let fixture: ComponentFixture<PopupbodyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesComponent ]
+      declarations: [ PopupbodyComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NotesComponent);
+    fixture = TestBed.createComponent(PopupbodyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

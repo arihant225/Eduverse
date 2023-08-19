@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { CanactivateService } from './services/guards/canactivate.service';
 import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
-import { NotesComponent } from './user/notes/notes.component';
+import {  WorkspaceComponent } from './user/notes/workspace.component';
 import { NewnotesComponent } from './user/newnotes/newnotes.component';
 
 
@@ -19,8 +19,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
-    {path:'notes',component:NotesComponent,pathMatch:'full'},
-    {path:'newnotes/:id',component:NewnotesComponent,pathMatch:'full'},
+    {path:'workspace',component:WorkspaceComponent,pathMatch:'full'},
+    {path:'notes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'veiwnotes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'editnotes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'newnotes',component:NewnotesComponent,pathMatch:'full'},

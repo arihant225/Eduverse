@@ -1,0 +1,67 @@
+<!--Popups-->
+<app-add-folders [popupState]="createFolderState" [Folders]="folderItems" (ToggleState)="createFolderState=!createFolderState;AddFolder($event)"></app-add-folders>
+
+
+<div class="greetings col-md-12">
+    <div class="userName">Hey {{userService.firstName}},</div>
+Welcome to your dedicated workspace, designed to facilitate your productivity. Here, you can efficiently work, prepare your notes, and seamlessly upload documents with ease.
+</div>
+
+<div class="greetings col-md-12">
+    <div class="date">
+{{time|date}}
+</div>
+<br/>
+{{time|date:'hh:mm:ss:a'}}
+<img src="assets/Notes.jpg">
+</div>
+
+<hr>
+
+<div class="row">
+<div class="col-md-8">
+<button (click)="newNote()">
+    <i class="bi bi-plus-circle-dotted"></i>
+    New Notes
+</button>
+<button (click)="createFolder()">
+    <i class="bi bi-folder-plus"></i>
+    Create Folder
+</button><button>
+    <i class="bi bi-diagram-3-fill"></i>
+    view insight
+</button>
+</div>
+<div class="col-md-4">
+    <input class="form-control" #search  placeholder="Search Folder/Notes ..">
+</div>
+</div>
+<ng-container *ngIf="AllItems">
+    <div class="folders">
+        <span  *ngFor="let folder of AllItems?.directories;let i=index">
+            <div class="folder" (contextmenu)="FolderFunctions($event,folder.folderId)">
+                <span style="width: max-content;">
+                    <i class="bi bi-folder-fill"></i>
+                </span>
+                <input class="folderName form-control" id="folderName" (blur)="FolderAction(i,folder.folderId,'renameBlur',null)" (keydown)="FolderAction(i,folder.folderId,'renameClick',$event)" value="{{folder.folderName}}" readonly>
+                    
+            
+
+                <div class="folderMenu"  *ngIf="folder.option">
+                     <div class="folderMenuItems" (click)="FolderAction(i,folder.folderId,'open',null)">Open</div>
+                     
+                     <div class="folderMenuItems" (click)="FolderAction(i,folder.folderId,'rename',null)">Rename</div>
+                     
+                     <div class="folderMenuItems" (click)="FolderAction(i,folder.folderId,'add notes',null)">Add Notes</div>
+
+                     <div class="folderMenuItems" (click)="FolderAction(i,folder.folderId,'delete',null)">Delete</div>
+                     
+
+                </div>
+               
+
+            </div>
+          
+        </span>
+    </div>
+</ng-container>

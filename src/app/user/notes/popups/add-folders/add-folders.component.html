@@ -1,0 +1,23 @@
+<app-popupbody [PopupState]="popupState">
+<div class="heading">
+    Create Folder
+</div>
+    <div class="form-control-Group">
+        <label [ngClass]="{'dirtyLabel':inp1.value.length!=0}">
+            Folder Name
+        </label>
+ <input #inp1 class="form-control" [formControl]="folderName" (keypress)="preventLimit($event)">
+    </div>
+    <div  *ngIf="errors" class="errorDiv">Folder with this name already </div>
+<div class="counter">
+  Word Limit:   {{folderName.value.length}}/50
+</div>
+ <div class="Action">
+    <span>
+        <button (click)="Cancel()" >Cancel</button>
+    </span>
+    <span>
+    <button (click)="CreateFolder()" [disabled]="folderName.value.length==0" >Create</button>
+    </span>
+ </div >
+</app-popupbody>

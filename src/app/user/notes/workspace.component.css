@@ -79,3 +79,71 @@ button:active{
 .form-control::placeholder{
     color: blanchedalmond;
 }
+
+.folders{
+    margin: 50px ;
+    margin-bottom: 300px;
+}
+.folderName{
+    width: 80px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    word-wrap: inherit;
+    word-break: break-all;
+    text-wrap: nowrap;
+    background-color: black;
+    color: white;
+    border:none;
+    cursor: pointer;
+    box-shadow: none;
+}
+.folderName:focus-visible{
+    border:none;
+    box-shadow: none;
+    border-color: black;
+}
+.folder{
+    flex-direction: column;
+    align-items: center;
+    aspect-ratio: 1/1;
+    width: 130px;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 14px;
+    position:relative;
+
+}
+.folder:hover{
+  box-shadow: 0px 0px 2px #ffffff;
+}
+.folder i{
+    font-size: 24px;
+}
+.folderMenu{
+    position: absolute;
+    background-color: white;
+    color: black;
+    padding: 10px 8px;
+    left: 70px;
+    top: 75px;
+    margin-bottom: 12px;
+    z-index: 2;
+    border-radius: 7px;
+    opacity: initial;
+
+
+
+}
+.folderMenuItems{
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 129px;
+    margin: 9px;
+    cursor: pointer;
+}
+.folderMenuItems:hover{
+    font-weight: bold;
+}

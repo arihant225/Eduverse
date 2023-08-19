@@ -14,9 +14,11 @@ import { LoginComponent } from './public/login/login.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { NotesComponent } from './user/notes/notes.component';
 import { NewnotesComponent } from './user/newnotes/newnotes.component';
 import { BooleanSliderComponent } from './public/widgets/boolean-slider/boolean-slider.component';
+import { AddFoldersComponent } from './user/notes/popups/add-folders/add-folders.component';
+import { PopupbodyComponent } from './public/widgets/popupbody/popupbody.component';
+import { WorkspaceComponent } from './user/notes/workspace.component';
 
 
 
@@ -32,9 +34,11 @@ import { BooleanSliderComponent } from './public/widgets/boolean-slider/boolean-
     LoginComponent,
     DashboardComponent,
     ConnectToStreamComponent,
-    NotesComponent,
+    WorkspaceComponent,
     NewnotesComponent,
-    BooleanSliderComponent
+    BooleanSliderComponent,
+    AddFoldersComponent,
+    PopupbodyComponent
 
   ],
   imports: [
