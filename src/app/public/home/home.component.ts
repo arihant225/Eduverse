@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   public TutorsCount:number=0;
   public TuteesCount:number=0;
-  public routesItems:IMenuRoutes[]=[{item:'Explore-around',item_route:'/explore'},{item:'Blogs',item_route:'/blogs'},{item:'Sign Up',item_route:'/signup'},{item:'Events',item_route:'/events'},{item:'Opportunity',item_route:'/opportunity'},{item:'Become a Host',item_route:'/login'},{item:'About-us',item_route:'/aboutus'}]
+  public routesItems:IMenuRoutes[]=[{item:'Blogs',item_route:'/blogs'},{item:'Sign Up',item_route:'/signup'},{item:'Events',item_route:'/events'},{item:'Opportunity',item_route:'/opportunity'},{item:'Become a Host',item_route:'/login'},{item:'About-us',item_route:'/aboutus'}]
   public InstituteCount:number=0;
 
 constructor(public userService:UserService) {

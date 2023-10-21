@@ -6,4 +6,5 @@ export interface INotes {
     bodyStyle?: string | null;
     isPrivate?:boolean
     isAuthorize?:boolean
+    parentFolderId?:number|null;
 }

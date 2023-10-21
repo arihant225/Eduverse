@@ -16,7 +16,14 @@ export class DirectoryService {
    Save(directory:IEduverseDirectory):Observable<IEduverseDirectory>{
    return this.http.post<IEduverseDirectory>(`${this.baseUrl}Directory/Save`,directory,{headers:this.httpHeaders});
    }
-   GetAllDirectories():Observable<AllItems>{
+   GetAllDirectories(id:number|null):Observable<AllItems>{
+    if(id)
+    return this.http.get<AllItems>(`${this.baseUrl}Directory/AllDirectories/${id}`,{headers:this.httpHeaders});
+    else
     return this.http.get<AllItems>(`${this.baseUrl}Directory/AllDirectories`,{headers:this.httpHeaders});
+   }
+   deleteDirectory(id:number)
+   {
+    return this.http.delete<AllItems>(`${this.baseUrl}Directory/DeleteDirectory/${id}`,{headers:this.httpHeaders});
    }
 }

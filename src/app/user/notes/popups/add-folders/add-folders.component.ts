@@ -10,6 +10,8 @@ import { DirectoryService } from 'src/app/services/directory.service';
   styleUrls: ['./add-folders.component.css']
 })
 export class AddFoldersComponent {
+
+  @Input() ParentfolderId:number|null=null;
   constructor(private directoryService:DirectoryService,private notifierService:BackdropnotifierService){}
   @Input('popupState') set function(state:boolean){
     this.popupState=state;
@@ -46,7 +48,8 @@ export class AddFoldersComponent {
       folderId:0,
       folderName:this.folderName.value,
       noteItems:null,
-      option:false
+      option:false,
+      parentFolderId:this.ParentfolderId
     }
     this.errors=false;
     this.notifierService.text="Wait while we are creating the directory for you"

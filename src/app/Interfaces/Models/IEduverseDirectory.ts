@@ -3,6 +3,7 @@ export interface IEduverseDirectory{
     folderName:string;
     noteItems:Array<NoteItems>|null;
     option:boolean;
+    parentFolderId:number|null
 }
 
 export interface NoteItems{

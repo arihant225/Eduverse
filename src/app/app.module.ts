@@ -21,7 +21,6 @@ import { PopupbodyComponent } from './public/widgets/popupbody/popupbody.compone
 import { WorkspaceComponent } from './user/notes/workspace.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

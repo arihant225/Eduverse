@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
+    {path:'workspace/:id',component:WorkspaceComponent,pathMatch:'full'},
     {path:'workspace',component:WorkspaceComponent,pathMatch:'full'},
     {path:'notes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'veiwnotes/:id',component:NewnotesComponent,pathMatch:'full'},

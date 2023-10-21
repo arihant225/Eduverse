@@ -1,7 +1,7 @@
 import { Component, QueryList, Renderer2 } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { OnInit } from '@angular/core'
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AllItems, IEduverseDirectory } from 'src/app/Interfaces/Models/IEduverseDirectory';
 import { DirectoryService } from 'src/app/services/directory.service';
 
@@ -15,8 +15,9 @@ export class WorkspaceComponent implements OnInit {
   public createFolderState: boolean = false;
   public AllItems: AllItems | null = null;
   folderItems: string[] = [];
+  public currentFolderId:number|null=null;
   public time: Date = new Date();
-  constructor(public userService: UserService, public router: Router, private directoryService: DirectoryService, private renderer: Renderer2) {
+  constructor(public userService: UserService, public router: Router,private route:ActivatedRoute, private directoryService: DirectoryService, private renderer: Renderer2) {
     this.renderer.listen('window', 'click', (e: Event) => {
 
       if (this.lastSelectedItem && this.AllItems)
@@ -26,11 +27,19 @@ export class WorkspaceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllItems();
+    this.route.params.subscribe(data=>{
+    this.currentFolderId=data['id']
+      this.getAllItems(data['id']);
+    })
+    
     setInterval(() => {
       this.time = new Date();
     }, 1000)
   }
+
+
+
+
   FolderFunctions($event: MouseEvent, folderId: number) {
     $event.preventDefault();
     setTimeout(() => {
@@ -78,6 +87,20 @@ export class WorkspaceComponent implements OnInit {
 
     switch(action) {
 
+      case 'delete':
+        this.directoryService.deleteDirectory(id).subscribe(data=>{
+          if(this.AllItems)
+          {
+          this.AllItems.directories=this.AllItems.directories.filter(obj=>obj.folderId!=id);
+          let item: IEduverseDirectory = this.AllItems.directories.filter(obj => obj.folderId == id)[0]
+          let oldName = item.folderName;
+          this.folderItems=this.folderItems.filter(obj=>obj!=oldName);
+          }
+        })
+        break;
+      case 'open':
+        this.router.navigate(["/dashboard/workspace",id])
+        break;
       case 'rename' :
         if (document.querySelectorAll('#folderName')[domPosition] as HTMLInputElement) {
           (document.querySelectorAll('#folderName')[domPosition] as HTMLInputElement).readOnly = false;
@@ -186,23 +209,28 @@ export class WorkspaceComponent implements OnInit {
       }
 
     }
+  }    
   }
-
-
-
-
-
-    
-  }
-  getAllItems() {
-    this.directoryService.GetAllDirectories().subscribe(data => {
+  baseDirectory:boolean=true;
+  getAllItems(id:number|null) {
+    if(!id)
+    {
+    this.baseDirectory=true;
+    }
+    else{
+    this.baseDirectory=false;
+    }
+    this.directoryService.GetAllDirectories(id).subscribe(data => {
       this.AllItems = data;
-    }, null, () => {
+    }, error=>{
+      this.router.navigate(["/dashboard/workspace"])
+    }, () => {
       this.AllItems?.directories.forEach(obj => {
         obj.option = false
         this.folderItems.push(obj.folderName.toLowerCase());
       })
       this.AllItems?.directories.sort((a, b) => b.folderId > a.folderId ? -1 : 1)
+   
 
     })
 

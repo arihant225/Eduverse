@@ -1,13 +1,13 @@
 <!--Popups-->
-<app-add-folders [popupState]="createFolderState" [Folders]="folderItems" (ToggleState)="createFolderState=!createFolderState;AddFolder($event)"></app-add-folders>
+<app-add-folders [ParentfolderId]="currentFolderId" [popupState]="createFolderState" [Folders]="folderItems" (ToggleState)="createFolderState=!createFolderState;AddFolder($event)"></app-add-folders>
 
 
-<div class="greetings col-md-12">
+<div class="greetings col-md-12" *ngIf="baseDirectory">
     <div class="userName">Hey {{userService.firstName}},</div>
 Welcome to your dedicated workspace, designed to facilitate your productivity. Here, you can efficiently work, prepare your notes, and seamlessly upload documents with ease.
 </div>
 
-<div class="greetings col-md-12">
+<div class="greetings col-md-12" *ngIf="baseDirectory">
     <div class="date">
 {{time|date}}
 </div>
@@ -20,6 +20,10 @@ Welcome to your dedicated workspace, designed to facilitate your productivity. H
 
 <div class="row">
 <div class="col-md-8">
+<button routerLink="/dashboard/workspace"  *ngIf="!baseDirectory">
+    <i class="bi bi-arrow-left-circle"></i>
+        WorkSpace
+</button>
 <button (click)="newNote()">
     <i class="bi bi-plus-circle-dotted"></i>
     New Notes
@@ -39,7 +43,7 @@ Welcome to your dedicated workspace, designed to facilitate your productivity. H
 <ng-container *ngIf="AllItems">
     <div class="folders">
         <span  *ngFor="let folder of AllItems?.directories;let i=index">
-            <div class="folder" (contextmenu)="FolderFunctions($event,folder.folderId)">
+            <div class="folder" (contextmenu)="FolderFunctions($event,folder.folderId)" (dblclick)="FolderAction(i,folder.folderId,'open',null)">
                 <span style="width: max-content;">
                     <i class="bi bi-folder-fill"></i>
                 </span>
