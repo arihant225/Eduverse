@@ -10,6 +10,8 @@ import { CanactivateService } from './services/guards/canactivate.service';
 import { ConnectToStreamComponent } from './user/connect-to-stream/connect-to-stream.component';
 import {  WorkspaceComponent } from './user/notes/workspace.component';
 import { NewnotesComponent } from './user/newnotes/newnotes.component';
+import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
+import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent,pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch:'full'},
   {path:'login',component:LoginComponent,pathMatch:'full'},
+  {path:'hostwithus',component:BecomeAhostComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
+  {path:'',component:MydashboardComponent,pathMatch:'full'},
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
     {path:'workspace/:id',component:WorkspaceComponent,pathMatch:'full'},
     {path:'workspace',component:WorkspaceComponent,pathMatch:'full'},
@@ -25,6 +29,7 @@ const routes: Routes = [
     {path:'veiwnotes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'editnotes/:id',component:NewnotesComponent,pathMatch:'full'},
     {path:'newnotes',component:NewnotesComponent,pathMatch:'full'},
+
   ]},
   {path:'',component:HomeComponent,pathMatch:'full'},
 

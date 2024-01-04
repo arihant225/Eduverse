@@ -1,0 +1,32 @@
+<div class="dashboard-box">
+<div class="dashboard-img">
+<img src="/assets/admindashboard.jpg" >
+</div>
+
+<div class="dashboard-header">
+    <font style="font-size: 1rem;">let's unite efforts and forge connections with institutes, working together to build a robust network</font>
+    <br>
+    <table>
+        <tr>
+            <th>
+                Status
+            </th>
+            <th>
+                Count
+            </th>
+
+        </tr>
+        <tr *ngFor="let key of keys">
+            <td>
+               {{key}}
+            </td>
+            <td>
+            {{stats[key]}}
+            </td>
+
+        </tr>
+    </table>
+</div>
+</div>
+<div>
+</div>

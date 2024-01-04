@@ -1,4 +1,5 @@
 
 <app-menu *ngIf="menuservice.isVisible"></app-menu>
 <app-spinners *ngIf="backdropNotifier.text" [text]="backdropNotifier.text"></app-spinners>
+<app-toaster *ngIf="toasterService.state"></app-toaster>
 <router-outlet></router-outlet>

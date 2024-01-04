@@ -19,7 +19,10 @@ import { BooleanSliderComponent } from './public/widgets/boolean-slider/boolean-
 import { AddFoldersComponent } from './user/notes/popups/add-folders/add-folders.component';
 import { PopupbodyComponent } from './public/widgets/popupbody/popupbody.component';
 import { WorkspaceComponent } from './user/notes/workspace.component';
-
+import { AuthorDashboardComponent } from './user/author-dashboard/author-dashboard.component';
+import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
+import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
+import { ToasterComponent } from './public/widgets/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ import { WorkspaceComponent } from './user/notes/workspace.component';
     NewnotesComponent,
     BooleanSliderComponent,
     AddFoldersComponent,
-    PopupbodyComponent
+    PopupbodyComponent,
+    AuthorDashboardComponent,
+    MydashboardComponent,
+    BecomeAhostComponent,
+    ToasterComponent
 
   ],
   imports: [

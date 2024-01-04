@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
 
 .login-container{
-    width:500px;
+
     height: 70vh;
     top:20vh;
     position: relative;
@@ -116,5 +114,6 @@
     top:100px;
     padding-top: 50px;
     text-align: justify;
-
+    width: 100%;
 }
+

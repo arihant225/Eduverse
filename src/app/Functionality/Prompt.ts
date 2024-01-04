@@ -81,6 +81,7 @@ export class UserPrompt  {
             return false;
     }
     public async next() {
+       
         if (this.currentIndex >= this.prompts.length - 1) {
            this.backdropNotifier.text="Kindly wait we are setting up the account for you."
             let credential:ICredentials={
@@ -110,8 +111,9 @@ export class UserPrompt  {
 
         if (this.currentIndex >= 0 && this.checkError())
         return;
-
-
+       
+      
+        this.backdropNotifier.text="Processing..........."
         if(this.currentIndex==2&&this.Otps.mail)
         {
             this.currentIndex=3;
@@ -128,6 +130,8 @@ export class UserPrompt  {
             else{
                 this.readOnly[this.currentIndex]=false;
             }
+            
+            this.backdropNotifier.text=null;
             return;
            }
         }
@@ -142,12 +146,16 @@ export class UserPrompt  {
                 this.router.navigate(['/login'])
             }
             else{
-                this.readOnly[this.currentIndex]=true;
+                this.readOnly[this.currentIndex]=false;
             }
+            
+            this.backdropNotifier.text=null;
              return;
             }
 
         }
+        
+        this.backdropNotifier.text=null;
         this.errorPrompt.next(null);
         if(this.currentErrorPromptInterval)
         {
@@ -218,6 +226,7 @@ export class UserPrompt  {
             {
                tempPrompt+='<br><br>'
             }
+            if(prompt[tempIndex])
             tempPrompt = tempPrompt + prompt[tempIndex++];
             this.currentPrompt.next(tempPrompt);
 
@@ -234,6 +243,7 @@ export class UserPrompt  {
                 clearInterval(this.currentErrorPromptInterval);
                
             }
+            if(prompt[tempIndex])
             tempPrompt = tempPrompt + prompt[tempIndex++];
             this.errorPrompt.next(tempPrompt);
         }, 50)

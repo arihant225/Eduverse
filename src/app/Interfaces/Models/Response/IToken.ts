@@ -3,5 +3,6 @@ export interface IToken {
     username: string;
     expiration: string;
     email: string;
+    roles:Array<string>
   }
   

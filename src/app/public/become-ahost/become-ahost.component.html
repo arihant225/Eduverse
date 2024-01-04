@@ -1,0 +1,92 @@
+<div class="otp-verifier" *ngIf="otpSectionEnabled" >
+   <div class="otp-div">
+    <div>please enter otp that is sent to <br/>
+    </div>
+    <div>
+    <div class="otp-input-group">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[0]" maxlength="1" (keydown)="otpIndex=0;otpEventHandler($event)">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[1]" maxlength="1"  (keydown)="otpIndex=1;otpEventHandler($event)">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[2]" maxlength="1" (keydown)="otpIndex=2;otpEventHandler($event)">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[3]" maxlength="1" (keydown)="otpIndex=3;otpEventHandler($event)">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[4]" maxlength="1" (keydown)="otpIndex=4;otpEventHandler($event)">
+        <input class="otp-inp" type="number" [(ngModel)]="otpText[5]" maxlength="1" (keydown)="otpIndex=5;otpEventHandler($event)">
+    </div>
+    <div class="otp-button-grp">
+        <button (click)="otpSectionEnabled=false;">Cancel</button>
+        
+        <button>Verify Otp</button>
+    </div>
+
+   </div>
+</div> </div>
+<div class="no-extra-margin ">
+    <div class="container">
+        <div class="header-container">
+        <div class="heading-div">
+            Join us in expanding our network by partnering with institutes and collaborating to create a vibrant community together.
+        </div>
+        <div class="heading-div2">
+            Welcome to our vibrant community! Your presence here marks the beginning of an incredible voyage filled with boundless possibilities. Join us in shaping the future, where each interaction unlocks new horizons. Together, let's forge a path illuminated by innovation, learning, and collective success. Welcome aboard our journey of empowerment and growth!
+        </div>
+    </div>
+    </div>
+    <div class="cube-Container">
+        <div class="cube">
+            <div *ngFor="let feature of TempFeatures">{{feature}}</div>
+        </div>
+    </div>
+    <div class="RegistrationDiv" [formGroup]="InstituteEnquiryForm">  
+        <div>
+            <div class="image-renderer">
+                <img [src]="url">
+                <div (click)="inp.click()"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                    <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0"/>
+                  </svg>
+                <input (change)="fileupload($event.target)" type="file" hidden #inp>
+                </div>
+
+            </div>
+            <br>
+            <div class=" div-group">
+                <label class="label">Institute Name *</label>
+              <input   placeholder="" formControlName="InstituteName" #grp1 autocomplete="impp">
+            </div>
+        </div>
+        <div class="RegistrationForm">
+            <div class="div-group">
+                <label class="label">Email Id (Institute's)*</label>
+                <input   placeholder="" formControlName="Email" #grp1 autocomplete="impp">
+            </div>
+            <div class="div-group">
+                <label class="label">Website URL (if any)</label>
+                <input   placeholder="" formControlName="websiteUrl" #grp1 autocomplete="impp">
+            </div>
+            <div class="div-group">
+                <label class="label">Phone No *</label>
+                <input   placeholder="" formControlName="PhoneNo" #grp1 autocomplete="impp">
+            </div>
+
+            <div class="div-group">
+                <label class="label"> Institute Type *</label>
+                <select formControlName="TypeOfInstitute">
+                    <option value="">- Select -</option>
+                    <option>School</option>
+                    <option>College</option>
+                    <option>Institute</option>
+                    <option>Research Institute</option>
+                </select>
+            </div>
+            <div class="div-group">
+                <label class="label">Additional Comment or note </label>
+                <input   placeholder="" formControlName="comment" #grp1 autocomplete="impp">
+            </div>
+            <div class="div-group" (click)="save()">
+                <button> Submit your Inquery</button>
+            </div>
+           
+
+        </div>
+
+    </div>
+ </div>

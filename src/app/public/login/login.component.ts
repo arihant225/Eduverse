@@ -22,6 +22,19 @@ export class LoginComponent {
   email:["",[Validators.required]],
   password:["",[Validators.required]]
 });
+public EmailEvent(event:KeyboardEvent){
+  if (event.code.toString() == 'Enter') {
+    document.getElementById("password")?.focus();
+    event.preventDefault()
+
+  }
+}
+public passwordEvent(event:KeyboardEvent){
+  if (event.code.toString() == 'Enter') {
+    this.submitCredentials();
+
+  }
+}
 public submitCredentials(){
   this.invalidCredentials=false;
   this.required=false;
@@ -54,6 +67,7 @@ public submitCredentials(){
         localStorage.setItem("expirationTime",token.expiration);
         localStorage.setItem("username",token.username);
         localStorage.setItem("email",token.email);
+        localStorage.setItem("roles",JSON.stringify(token.roles));
         this.router.navigate(["/dashboard"]);
       }
     )

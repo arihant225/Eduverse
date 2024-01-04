@@ -1,0 +1,22 @@
+.error-Toaster{
+    position: fixed;
+    top:80px;
+    width: 40%;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+    right: 50px;
+    box-shadow: 3px 3px 20px rgb(72, 5, 5);
+    border: rgb(121, 7, 7) solid 1px;
+    z-index: 999;
+    background-color: rgb(0, 0, 0);
+    animation: animateToster 1s  ;
+    font-size: 0.8rem;
+
+}
+@keyframes animateToster{
+    0%{
+        top:100px
+    }
+
+}

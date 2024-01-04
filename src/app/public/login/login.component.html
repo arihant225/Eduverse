@@ -27,13 +27,14 @@ Welcome to EduVerse, where education knows no bounds. Immerse yourself in an int
                     <div class="form-label">
                         EmailId/PhoneNo :
                     </div>       
-                    <input class="form-control" formControlName="email">
+                    <textarea class="form-control" formControlName="email" autocomplete="off" spellcheck="false" (keypress)="EmailEvent($event)">
+                    </textarea>
                     <br/>
                     <div class="errors" ><span>&nbsp;</span><span *ngIf="required&&CredentialForm.get('email')?.errors">Email Address Or Phone No. is required</span></div>
                     <div class="form-label" >
                     Password :
                     </div>       
-                    <input type="password" class="form-control" formControlName="password">
+                    <input type="password" id="password" class="form-control" formControlName="password" (keypress)="passwordEvent($event)">
                     <div class="errors" ><span>&nbsp;</span><span *ngIf="required&&CredentialForm.get('password')?.errors">Password is required</span></div>
                     <div class="loginButton">
                         <button (click)="submitCredentials()">logIn</button>

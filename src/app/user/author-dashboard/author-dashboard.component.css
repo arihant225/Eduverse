@@ -1,0 +1,39 @@
+.dashboard-img{
+    height: 40vh;
+    border-radius:10xp ;
+}
+
+.dashboard-img img{
+    height: 97%;
+}
+.dashboard-header{
+    height: 40vh;
+    width: calc(50% - 30px) ;
+    margin-left: 20%;
+    padding: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    display: inline-block;
+    height: 30vh;
+    position: relative;
+}
+.dashboard-box{
+    display: flex;
+    flex-direction: row;
+
+}
+table{
+    width: 90%;
+    margin-top: 5vh;
+    border: #b5ffa4 solid 0.2px;
+    color: black;
+  
+}
+table  tr th{
+    padding: 5px 30px;
+    background-color:  #b5ffa4 ;
+
+}
+table  tr td{
+    padding: 5px 30px;
+    color: white;
+}
