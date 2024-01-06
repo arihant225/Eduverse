@@ -21,6 +21,10 @@ export class InqueryService {
   }
 
   
+public SearchQuery(accessor:string):Observable<Inquery>{
+    
+    return this.http.get<Inquery>(`${this.baseUrl}Inquery/Searchproposal/${accessor}`)
+  }
 
   public addInquery(body:any):Observable<any>{
     let form:FormData=new FormData();
@@ -28,7 +32,9 @@ export class InqueryService {
     {
       form.append(obj,body[obj])
     }
-    let httpHeaders= new HttpHeaders({'Authorization': `Bearer ${this.token}` });
     return this.http.post(`${this.baseUrl}Inquery/AddInquery`,form)
+  }
+  public getImage(path:string):Observable<any>{
+    return this.http.get(`${this.baseUrl}File/getFile/${path}`,{responseType:'blob'})
   }
 }

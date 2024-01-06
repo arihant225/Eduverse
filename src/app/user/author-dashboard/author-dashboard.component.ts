@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, Query } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Inquery } from 'src/app/Interfaces/Inquery';
 import { AuthorService } from 'src/app/services/author.service';
@@ -11,6 +11,7 @@ import { ToasterService } from 'src/app/services/toaster.service';
 })
 export class AuthorDashboardComponent implements OnInit {
 
+  public SelectedInstituteCache:Inquery[]=[];
   constructor(private authorService:AuthorService,public tosterService:ToasterService,public route:ActivatedRoute,public router:Router)
  {
   this.route.params.subscribe(
@@ -24,6 +25,10 @@ export class AuthorDashboardComponent implements OnInit {
  
  keys:string[]=[];
  stats:any={};
+ instituteName:string="";
+ filterInstitutes(){
+this.filteredInstitutes=this.allInstitutes.filter(obj=>obj.instituteName.toLowerCase().includes(this.instituteName.toLowerCase())||obj.emailId.toLowerCase().includes(this.instituteName.toLowerCase()))
+ }
 
  ngOnInit(): void {
    this.authorService.getStats().subscribe(
@@ -33,6 +38,8 @@ export class AuthorDashboardComponent implements OnInit {
     }
    )
  }
+ 
+ filteredInstitutes:Inquery[]=[];
  allInstitutes:Inquery[]=[];
  ViewInstituteItem(item: string) {
   if(this.stats[item]==0)
@@ -51,7 +58,9 @@ export class AuthorDashboardComponent implements OnInit {
       )
     }
    })
+   this.instituteName="";
   this.allInstitutes=data;
+  this.filterInstitutes()
 
   })
   this.router.navigate(["/dashboard/Search/institute",item])
@@ -64,5 +73,52 @@ export class AuthorDashboardComponent implements OnInit {
   }
   isInstituteSearchPath(){
     return window.location.hash.split("/").includes("Search")
+  }
+
+  ActionEnabledForQuery()
+  {
+    return window.location.hash.split("/").includes("Query");
+  }
+  
+  ActionEnabledForTotal()
+  {
+    return window.location.hash.split("/").includes("Total");
+  }
+  ActionEnabledForInActive()
+  {
+    return window.location.hash.split("/").includes("Inactive");
+  }
+  ActionEnabledForActive()
+  {
+    return window.location.hash.split("/").includes("Active");
+  }
+  selectAllState:boolean=false;
+  selectAllInstitute(){
+    this.selectAllState=!this.selectAllState;
+    if(this.selectAllState)
+    {
+      this.filteredInstitutes.forEach(ele=>{
+        if(!this.SelectedInstituteCache.includes(ele))
+        this.SelectedInstituteCache.push(ele);
+      })
+
+    }
+    else
+    this.SelectedInstituteCache=[];
+
+  }
+  selectInstitute(institute:Inquery){
+    if(this.SelectedInstituteCache.includes(institute))
+    {
+      this.SelectedInstituteCache=this.SelectedInstituteCache.filter(ref=>ref!=institute);
+    }
+    else{
+      this.SelectedInstituteCache.push(institute)
+    }
+  }
+  viewProposal(key:Inquery)
+  {
+    debugger;
+    this.router.navigate(['dashboard/viewProposal',key.accessor])
   }
 }

@@ -23,6 +23,7 @@ import { AuthorDashboardComponent } from './user/author-dashboard/author-dashboa
 import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
 import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
 import { ToasterComponent } from './public/widgets/toaster/toaster.component';
+import { ProposalComponent } from './public/proposal/proposal.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ToasterComponent } from './public/widgets/toaster/toaster.component';
     AuthorDashboardComponent,
     MydashboardComponent,
     BecomeAhostComponent,
-    ToasterComponent
+    ToasterComponent,
+    ProposalComponent
 
   ],
   imports: [

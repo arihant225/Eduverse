@@ -1,75 +1,109 @@
 <ng-container *ngIf="isRootPath()">
-<div class="dashboard-box">
-<div class="dashboard-img">
-<img src="/assets/admindashboard.jpg" > 
-</div>
+    <div class="dashboard-box">
+        <div class="dashboard-img">
+            <img src="/assets/admindashboard.jpg">
+        </div>
 
-<div class="dashboard-header">
-    <font style="font-size: 1rem;">let's unite efforts and forge connections with institutes, working together to build a robust network</font>
-    <br>
-    <table>
-        <tr>
-            <th>
-                Status
-            </th>
-            <th>
-                Count
-            </th>
+        <div class="dashboard-header">
+            <font style="font-size: 1rem;">let's unite efforts and forge connections with institutes, working together
+                to build a robust network</font>
+            <br>
+            <table>
+                <tr>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Count
+                    </th>
 
-        </tr>
-        <tr *ngFor="let key of keys" (click)="ViewInstituteItem(key)">
-            <td>
-               {{key}}
-            </td>
-            <td>
-            {{stats[key]}}
-            </td>
+                </tr>
+                <tr *ngFor="let key of keys" (click)="ViewInstituteItem(key)">
+                    <td>
+                        {{key}}
+                    </td>
+                    <td>
+                        {{stats[key]}}
+                    </td>
 
-        </tr>
-    </table>
-</div>
-</div>
+                </tr>
+            </table>
+        </div>
+    </div>
 </ng-container>
 <ng-container *ngIf="isInstituteSearchPath()">
-    <table class="instituteTable">
-        <tr>
-            <th>
-                Logo
-            </th>
-            <th>
-                Institute Name
-            </th>
-            <th>
-                Institute Type
-            </th>
-        
-            <th>
-                Status
-            </th>
-            <th>
-                Email
-            </th>
+    <div class="div-group">
+        <div *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
+            <p>Accept All </p>
+        </div>
+        <div *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
+            <p>Deny All </p>
+        </div>
+        <div *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()">
+            <p>Block All </p>
+        </div>
+        <div *ngIf="ActionEnabledForInActive()||ActionEnabledForTotal()">
+            <p>Active All</p>
+        </div>
+        <div *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()">
+            <p>Freeze All</p>
+        </div>
+        <input placeholder="Search By Institute Name /  Email" [(ngModel)]="instituteName" (keyup)="filterInstitutes()">
+    </div>
+    <div class="instituteContainer">
+        <table class="instituteTable">
+            <tr>
+                <th>
+                   <div class="checkBox" [ngClass]="{'selectAll':selectAllState}" (click)="selectAllInstitute()"> </div> &nbsp; select all
+                </th>
+                <th>
+                    Logo
+                </th>
+                <th>
+                    Institute Name
+                </th>
+                <th>
+                    Institute Type
+                </th>
 
-        </tr>
-        <tr *ngFor="let key of allInstitutes" >
-            <td>
-                <img [src]="key.imgUrl" class="InstituteImage">
-            </td>
+                <th>
+                    Status
+                </th>
 
-            <td>
-               {{key.instituteName}}
-            </td>
-            <td>
-                {{key.instituteType}}
-            </td>     
-            <td>
-                {{key.status}}
-            </td>
-            <td>
-                {{key.emailId}}
-            </td>
+                <th>
+                    Action
+                </th>
+
+            </tr>
+            <tr *ngFor="let key of filteredInstitutes">
+                <td>
+                  <div class="checkBox" *ngIf="!SelectedInstituteCache.includes(key)" (click)="selectInstitute(key)"></div>
+                  <div  style="cursor: pointer;" *ngIf="SelectedInstituteCache.includes(key)" (click)="selectInstitute(key)" >&#x2705;</div>
+                </td>
+                <td>
+                    <img [src]="key.imgUrl" class="InstituteImage">
+                </td>
+
+                <td>
+                    {{key.instituteName}}
+                </td>
+                <td>
+                    {{key.instituteType}}
+                </td>
+                <td>
+                    {{key.status}}
+                </td>
+
+                <td>
+                    <ng-container *ngIf="ActionEnabledForQuery()">
+                        <div class="Action" (click)="viewProposal(key)">View Proposal</div>
+                        <div class="Action">Accept</div>
+                        <div class="Action">Deny</div>
+                    </ng-container>
+                </td>
 
 
-        </tr>
-    </table>
+            </tr>
+        </table>
+    </div>
 </ng-container>

@@ -1,0 +1,55 @@
+<div class="header">
+    Proposal
+</div>
+<div class="container">
+
+
+    <div class="img-container">
+        <div>
+        <img class="image" [src]="inquery?.imgUrl">
+        <br/><br/>
+        <div class="img-container">
+            Status:     &nbsp;
+        <ng-container [ngSwitch]="inquery?.status">
+            <ng-container *ngSwitchCase="'Query'">
+        Submitted</ng-container>
+                <ng-container *ngSwitchDefault>  {{inquery?.status}}</ng-container> 
+            </ng-container>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="Institute-Details-Container">
+            <div>
+                <span>Institute Name</span>
+                <span>{{inquery?.instituteName}}</span>
+            </div>
+
+            <div>
+                <span>Institute Type</span>
+                <span>{{inquery?.instituteType}}</span>
+            </div>
+
+            <div>
+                <span>Mail</span>
+                <span>{{inquery?.emailId}}</span>
+            </div>
+
+            <div>
+                <span>Phone</span>
+                <span>{{inquery?.phoneNo}}</span>
+            </div>
+
+            <div>
+                <span>Url</span>
+                <span>{{inquery?.url}}</span>
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+<div class="Actions">
+    <button>withdraw proposal</button>
+
+</div>

@@ -219,14 +219,17 @@ submitForm(){
     comment:this.InstituteEnquiryForm.value['comment'],
     instituteType:this.InstituteEnquiryForm.value['TypeOfInstitute']
   }
+  let accessor:any;
   this.inqueryService.addInquery(body).subscribe(
+   
     data=>{
+      accessor=data;
     },null,
     ()=>{
       this.backdropnotifierService.text="query sent successfully";
 setTimeout(()=>{
 this.backdropnotifierService.text=null;
-this.route.navigate(['/home'])
+this.route.navigate(['/viewProposal',accessor.value])
 },1000)
     }
   )

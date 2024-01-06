@@ -8,7 +8,8 @@ export interface Inquery {
     img?: File|null; // Assuming File is the equivalent type in TypeScript for IFormFile
     path?:string;
     imgUrl?:string;
-    status?:string
+    status?:string;
+    accessor?:string
     
   }
   
