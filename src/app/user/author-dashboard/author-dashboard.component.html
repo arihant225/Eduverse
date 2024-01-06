@@ -1,6 +1,7 @@
+<ng-container *ngIf="isRootPath()">
 <div class="dashboard-box">
 <div class="dashboard-img">
-<img src="/assets/admindashboard.jpg" >
+<img src="/assets/admindashboard.jpg" > 
 </div>
 
 <div class="dashboard-header">
@@ -16,7 +17,7 @@
             </th>
 
         </tr>
-        <tr *ngFor="let key of keys">
+        <tr *ngFor="let key of keys" (click)="ViewInstituteItem(key)">
             <td>
                {{key}}
             </td>
@@ -28,5 +29,47 @@
     </table>
 </div>
 </div>
-<div>
-</div>
+</ng-container>
+<ng-container *ngIf="isInstituteSearchPath()">
+    <table class="instituteTable">
+        <tr>
+            <th>
+                Logo
+            </th>
+            <th>
+                Institute Name
+            </th>
+            <th>
+                Institute Type
+            </th>
+        
+            <th>
+                Status
+            </th>
+            <th>
+                Email
+            </th>
+
+        </tr>
+        <tr *ngFor="let key of allInstitutes" >
+            <td>
+                <img [src]="key.imgUrl" class="InstituteImage">
+            </td>
+
+            <td>
+               {{key.instituteName}}
+            </td>
+            <td>
+                {{key.instituteType}}
+            </td>     
+            <td>
+                {{key.status}}
+            </td>
+            <td>
+                {{key.emailId}}
+            </td>
+
+
+        </tr>
+    </table>
+</ng-container>

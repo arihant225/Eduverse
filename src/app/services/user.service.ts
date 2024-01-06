@@ -5,6 +5,14 @@ import { Observable, Subject } from 'rxjs';
 import { webConfig } from 'src/WebConfig';
 import { MenuService } from './menu.service';
 
+enum  userRoles{
+  EDUAUTHOR="EDU-AUTHOR",
+  ADMIN="ADMIN",
+  ORGINISATION="ORGINISATION",
+  USER="USER"
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -77,7 +85,7 @@ export class UserService {
         )
       }
       else {
-
+``
         resolve(false);
         this.IsAuthorize=false;
         this.router.navigate(["/login"]);
@@ -96,4 +104,30 @@ export class UserService {
   
     return this.http.get<any>(this.url + "login/IsAuthenticate", { headers: httpHeadrs });
   }
+
+
+  public static checkRole(role:string){
+    let item=localStorage.getItem("roles");
+    if(item!=null)
+    {
+    let roles:string[]=JSON.parse(item)
+    return roles.includes(role);
+  }
+  return false;
+
+  }
+
+  public static IsSuperAdmin(){
+    return UserService.checkRole(userRoles.EDUAUTHOR)
+  }
+  public static IsAdmin(){
+    return UserService.checkRole(userRoles.ADMIN)
+  }
+  public static IsInstitute(){
+    return UserService.checkRole(userRoles.ORGINISATION)
+  }
+  public static IsUser(){
+    return UserService.checkRole(userRoles.USER)
+  }
+
 }

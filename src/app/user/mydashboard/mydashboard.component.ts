@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-mydashboard',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class MydashboardComponent {
 
+  constructor()
+  {}
+  AuthorizeForSuperUser(){
+    return UserService.IsSuperAdmin();
+  }
 }

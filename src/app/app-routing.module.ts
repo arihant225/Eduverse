@@ -12,6 +12,7 @@ import {  WorkspaceComponent } from './user/notes/workspace.component';
 import { NewnotesComponent } from './user/newnotes/newnotes.component';
 import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
 import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
+import { UserService } from './services/user.service';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'hostwithus',component:BecomeAhostComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
   {path:'',component:MydashboardComponent,pathMatch:'full'},
+    {path:'Search/institute/:type',component:MydashboardComponent,canActivate:[UserService.IsSuperAdmin],pathMatch:'full'},
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},
     {path:'workspace/:id',component:WorkspaceComponent,pathMatch:'full'},
     {path:'workspace',component:WorkspaceComponent,pathMatch:'full'},
@@ -39,4 +41,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+  
+  
+}

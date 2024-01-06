@@ -23,15 +23,7 @@
     background-color: white;
     padding: 0px 7px;
 }
-.dirtyLabel{
 
-    top: -10px !important;;
-    font-size: 13px !important;
-    opacity: 1;
-    z-index: 24 !important;
-    background-color: white !important;
-    padding: 0px 7px !important;
-}
 label{
     position: absolute;
     left: 10px;
@@ -95,4 +87,13 @@ button:not(:disabled){
     justify-content: right;
     padding-top: 10px;
     font-size: 12px;
+}
+.dirtyLabel{
+
+    top: -10px ;;
+    font-size: 13px ;
+    opacity: 1;
+    z-index: 24 ;
+    background-color: white ;
+    padding: 0px 7px ;
 }

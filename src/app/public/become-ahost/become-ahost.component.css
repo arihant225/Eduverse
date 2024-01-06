@@ -14,14 +14,7 @@
     display: grid;
     grid-template-columns: 40% 60%;
 }
-@media screen and (max-width:600px) {
-    .heading-div{
-        width: 95% !important;
-        
-   
-    }
-    
-}
+
 .heading-div{
     border-radius: 74% 162% 99% 132%; 
     min-height: 264px;
@@ -71,9 +64,7 @@
 .cube{
     position:relative;
 
-}
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
-.cube div{
+}.cube div{
     width: 300px;
     height: 300px;
     position: absolute;
@@ -202,28 +193,6 @@ text-align: center;
 }
 
 
-.div-group input{
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    color: white !important;
-    width: 90%;
-    box-shadow: none;
-    padding: 20px 10px;
-}
-.div-group input:focus-visible{
-    outline: none;
-    border-bottom: rgb(205, 205, 154) solid 1px;
-}
-.div-group select{
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid white;
-    color: white !important;
-    width: 90%;
-    box-shadow: none;
-    padding: 20px 10px;
-}
 .div-group select:focus-visible{
     outline: none;
     border-bottom: rgb(205, 205, 154) solid 1px;
@@ -245,40 +214,28 @@ text-align: center;
     margin: auto;
     
 }
-@media screen and (max-width:1018px) {
-    .header-container{
-        display: grid;
-        grid-template-columns: 100%;
-        
-    } 
-    .RegistrationDiv{
-        grid-template-columns: 40% 60%;
-        width: 90%;
-        margin: 5%;
- 
-    } 
-    .heading-div2{
-        margin-left: 10px !important;
-        width: 90% !important;
-        padding: 10px !important;
-    }
-}
-@media screen and (max-width:600px) {
-    .heading-div{
-        width: 95% !important;
-        
-   
-    }
-    .image-renderer{
-        width: 40%;
 
-    }
-    .RegistrationDiv{
-        grid-template-columns: 100%;
-        min-height: 1100px;
- 
-    }  
-    
+.div-group input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white ;
+    width: 90%;
+    box-shadow: none;
+    padding: 20px 10px;
+}
+.div-group input:focus-visible{
+    outline: none;
+    border-bottom: rgb(205, 205, 154) solid 1px;
+}
+.div-group select{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white ;
+    width: 90%;
+    box-shadow: none;
+    padding: 20px 10px;
 }
 .RegistrationForm{
     display: grid;
@@ -315,13 +272,14 @@ text-align: center;
 }
 .otp-div{
     width: 500px;
-    height: 240px;
+    height: 280px;
     border: white solid 1px;
     padding: 30px;
     color: #fdd0d0;
     border-radius: 30px;
     box-shadow: 1px 2px 32px #ac7979;
-    font-family: 'IBM Plex Mono', monospace;   
+    font-family: 'IBM Plex Mono', monospace; 
+    background-color: black;  
 }
 .otp-input-group{
     display: flex;
@@ -362,4 +320,49 @@ input[type="number"]::-webkit-outer-spin-button {
 .otp-button-grp button:nth-child(1){
     left: 10px;
     position: absolute;
+}
+@media screen and (max-width:600px) {
+    .heading-div{
+        width: 95% ;
+        
+   
+    }
+    
+}
+
+
+@media screen and (max-width:1018px) {
+    .header-container{
+        display: grid;
+        grid-template-columns: 100%;
+        
+    } 
+    .RegistrationDiv{
+        grid-template-columns: 40% 60%;
+        width: 90%;
+        margin: 5%;
+ 
+    } 
+    .heading-div2{
+        margin-left: 10px ;
+        width: 90% ;
+        padding: 10px ;
+    }
+}
+@media screen and (max-width:600px) {
+    .heading-div{
+        width: 95% ;
+        
+   
+    }
+    .image-renderer{
+        width: 40%;
+
+    }
+    .RegistrationDiv{
+        grid-template-columns: 100%;
+        min-height: 1100px;
+ 
+    }  
+    
 }

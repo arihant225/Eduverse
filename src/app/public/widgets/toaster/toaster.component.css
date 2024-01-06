@@ -1,17 +1,18 @@
 .error-Toaster{
     position: fixed;
-    top:80px;
+    top: 80px;
     width: 40%;
-    padding: 10px 15px;
+    padding: 15px 15px;
     color: white;
     font-weight: bold;
     right: 50px;
-    box-shadow: 3px 3px 20px rgb(72, 5, 5);
-    border: rgb(121, 7, 7) solid 1px;
-    z-index: 999;
-    background-color: rgb(0, 0, 0);
-    animation: animateToster 1s  ;
-    font-size: 0.8rem;
+    box-shadow: 2px 1px 20px 4px rgb(222, 222, 222);
+    border: rgb(118 74 74) solid 1px;
+    z-index: 1013;
+    background-color: black;
+    animation: _ngcontent-bgp-c18_animateToster 1s;
+    font-size: 0.9rem;
+
 
 }
 @keyframes animateToster{

@@ -1,39 +1,72 @@
 .dashboard-img{
-    height: 40vh;
-    border-radius:10xp ;
+    border-radius:10px ;
+    width: 30%;
+    display: inline-block;
+    
 }
 
 .dashboard-img img{
-    height: 97%;
+    height: 300px;
 }
 .dashboard-header{
-    height: 40vh;
-    width: calc(50% - 30px) ;
-    margin-left: 20%;
-    padding: 10px;
+    display: inline-block;
+    height: 100%;
+    padding: 0px 50px;
+    width: calc(70% - 10px) ;
     font-family: 'IBM Plex Mono', monospace;
     display: inline-block;
-    height: 30vh;
     position: relative;
 }
 .dashboard-box{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+grid-template-columns: 30% 70%;
 
 }
 table{
     width: 90%;
     margin-top: 5vh;
     border: #b5ffa4 solid 0.2px;
-    color: black;
+    color: white;
   
 }
 table  tr th{
     padding: 5px 30px;
     background-color:  #b5ffa4 ;
+    color: black;
+    
 
 }
 table  tr td{
     padding: 5px 30px;
-    color: white;
+ 
+    
+}
+table tr:hover{
+  background-color:rgb(229, 229, 230);
+  color: black;
+  cursor: pointer;
+
+
+}
+@media screen and (max-width:700px) {
+    .dashboard-box{
+        grid-template-columns: 100%;
+        padding: 10%;
+
+    }
+    .dashboard-header{
+        width: 90%;
+        padding: 0px 0px;
+    }
+}
+.InstituteImage{
+    height: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+.instituteTable{
+    font-size: 0.8rem;
+}
+.instituteTable tr{
+    border:  white solid 1px;
 }
