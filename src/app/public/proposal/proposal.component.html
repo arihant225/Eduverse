@@ -1,3 +1,4 @@
+<app-otp-verifier *ngIf="otpSectionEnabled" [id]="inquery==null?'':inquery.emailId" [invalidOtp]="invalidOtp" (cancel)="this.otpSectionEnabled=false" (submitOtp)="submitOtp($event)"></app-otp-verifier>
 <div class="header">
     Proposal
 </div>
@@ -50,6 +51,6 @@
     </div>
 </div>
 <div class="Actions">
-    <button>withdraw proposal</button>
+    <button (click)="doAction('Withdraw')" *ngIf="inquery?.status=='Query'&&!adminRole()"> withdraw proposal</button>
 
 </div>

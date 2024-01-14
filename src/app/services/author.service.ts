@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { webConfig } from 'src/WebConfig';
-import { Inquery } from '../Interfaces/Inquery';
+import { Inquery, ManageInstitue } from '../Interfaces/Inquery';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,9 @@ export class AuthorService {
   }
   public getImage(path:string):Observable<any>{
     return this.http.get(`${this.baseUrl}File/getFile/${path}`,{headers:this.httpHeaders,responseType:'blob'})
+  }
+  public ManageInstitutes(institute:ManageInstitue):Observable<ManageInstitue>{
+    return this.http.post<ManageInstitue>(`${this.baseUrl}author/ManageInstitues`,institute,{headers:this.httpHeaders})
   }
 
 }

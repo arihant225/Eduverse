@@ -1,0 +1,57 @@
+<div class="backdrop">
+    <div class="popup" *ngIf="type=='Domain'">
+        <div class="center">{{header}}</div>
+        <div class="center">
+            <input [(ngModel)]="text" placeholder="name of domain" (keyup)="errors=false" autocomplete="sndjnkj" />
+            <div class="errors" *ngIf="errors"> Name is Mandatory</div>
+        </div>
+
+        <div class="btn-grp">
+            <button (click)="userAcceptance.emit(null)">Cancel</button>
+
+            <button (click)="(text&&text.length>0)?userAcceptance.emit(text):errors=true" *ngIf="New">Add</button>
+            <button (click)="(text&&text.length>0)?userAcceptance.emit(text):errors=true" *ngIf="!New">Update</button>
+        </div>
+    </div>
+    <div class="popup" *ngIf="type=='Users'">
+        <div class="center">{{header}}</div>
+        <div class="center">
+            <input [(ngModel)]="text" placeholder="Name" (keyup)="errors=false" autocomplete="sndjnkj" />
+            <div class="errors" *ngIf="errors"> Name is Mandatory</div>
+        </div>
+        <div class="center">
+            <input [(ngModel)]="text" placeholder="Email Id" (keyup)="errors=false" autocomplete="sndjnkj" />
+            <div class="errors" *ngIf="errors"> Email Id is Mandatory</div>
+        </div>
+    </div>
+    <div class="popup Helper">
+        <div class="center">Upload Csv</div>
+
+        <div class="center content">
+
+            <app-upload-csv-helper></app-upload-csv-helper>
+        </div>
+        <div class="action-container">
+            <div class="helper-Files">
+                Download Sample Csv's :
+                <br />
+
+                <div (click)="download('./assets/cred.csv')">
+                    Csv (without Custom UserIds) <i class="bi bi-cloud-download"></i></div>
+                <div (click)="download('./assets/cred_userId.csv')">
+                    Csv (with Custom UserIds)
+                    <i class="bi bi-cloud-download"></i>
+                </div>
+            </div>
+            <div class="helper-Files">
+              Actions: 
+              <br/>
+                <div (click)="ref.click()">
+                    <input type="file" hidden #ref (change)="upload.emit($event)">
+                    upload Csv<i  class="bi bi-cloud-upload"></i></div>
+           
+                <div (click)="upload.emit(null)">Cancel</div>
+            </div>
+        </div>
+    </div>
+</div>

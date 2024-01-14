@@ -1,0 +1,26 @@
+<div class="otp-verifier" >
+    <div class="otp-div">
+     <div>please enter otp that is sent to <br/>
+        {{id}}
+     </div>
+     <div>
+     <div class="otp-input-group">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[0]" maxlength="1" (keydown)="otpIndex=0;otpEventHandler($event)">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[1]" maxlength="1"  (keydown)="otpIndex=1;otpEventHandler($event)">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[2]" maxlength="1" (keydown)="otpIndex=2;otpEventHandler($event)">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[3]" maxlength="1" (keydown)="otpIndex=3;otpEventHandler($event)">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[4]" maxlength="1" (keydown)="otpIndex=4;otpEventHandler($event)">
+         <input class="otp-inp" type="number" [(ngModel)]="otpText[5]" maxlength="1" (keydown)="otpIndex=5;otpEventHandler($event)">
+     </div>
+     <div class="otp-button-grp" style="font-size: 12px; ">
+         {{invalidOtp?'Invalid Otp':''}}
+     </div>
+     <div class="otp-button-grp">
+         <button (click)="cancel.emit()">Cancel</button>
+         
+         <button (click)="submitOtp.emit(this.otpText.join(''))">Verify Otp</button>
+     </div>
+ 
+    </div>
+ </div> 
+ </div>

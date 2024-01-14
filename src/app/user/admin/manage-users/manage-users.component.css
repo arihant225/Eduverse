@@ -1,0 +1,102 @@
+
+.Quick-Actions{
+    margin: 20px 40px ;
+}
+.Quick-Actions div{
+    border:  1px solid white;
+    padding: 8px 24px 8px 10px;
+    display: inline-block;
+    margin-right: 80px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+}
+.Quick-Actions div i{
+    margin-right: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.Quick-Actions div:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.ActionsHeader{
+    padding: 30px 50px 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+}
+.Data-Container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid #a19a8e; */
+    padding: 50px;
+    background-color: #4a0404;
+    border-radius: 30px;
+}
+.Data-Container table{
+    /* background-color: #e6e6e6; */
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 25px 0px;
+    display: block;
+    border-radius: 10px;
+}
+.Data-Container table tr th{
+    padding:  13px 75px;
+    border: solid 1px white;
+    font-size: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.Data-Container-header{
+    font-weight: bolder;
+    font-size: 15px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.Data-Container table tr td{
+    padding:  8px;
+    font-size: 13px;
+    border-right: 1px solid white;
+    
+    border-left: 1px solid white;
+
+}
+
+
+.Data-Container table tr:first-child{
+    border-top: 1px solid white;
+}
+.Data-Container table tr:last-child{
+    border-bottom: 1px solid white;
+}
+
+td{
+    position: relative;
+}
+td i{
+    font-size: 22px;
+
+}
+.warning
+{
+    font-size: 14px !important;
+    position: absolute;
+    right: 0px;
+    top: 24px;
+    background-color: #4a0404;
+    padding: 11px;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white ;
+    width: 90%;
+    box-shadow: none;
+    padding: 13px 10px 8px;
+
+}
+input:focus-visible{
+    outline: none;
+    border-bottom: rgb(205, 205, 154) solid 1px;
+}

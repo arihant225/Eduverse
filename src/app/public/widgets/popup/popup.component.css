@@ -1,0 +1,110 @@
+
+.backdrop{
+    position: fixed;
+    z-index:100;
+    background-color: rgba(0,0,0,0.8);
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.popup{
+    width: 500px;
+    min-height: 280px;
+    border: white solid 1px;
+    padding: 30px;
+    color: #fdd0d0;
+    border-radius: 30px;
+    box-shadow: 1px 2px 32px #ac7979;
+    font-family: 'IBM Plex Mono', monospace; 
+    background-color: black;  
+    position: relative;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white ;
+    width: 90%;
+    box-shadow: none;
+    padding: 20px 10px;
+    width: 300px;
+}
+input:focus-visible{
+    outline: none;
+    border-bottom: rgb(205, 205, 154) solid 1px;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.btn-grp{
+    margin-top: 50px;
+    display: flow-root;
+}
+.btn-grp button:last-child{
+    float: right;
+}
+.btn-grp button{
+    width: 100px;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 20px;
+    border:  white solid 1px;
+    color: white;
+    font-size: 14px;
+}
+.btn-grp button:hover{
+    background-color: white;
+    color: black;
+}
+.errors
+{
+    position: absolute;
+    top: 150px;
+    font-size: 12px;
+    color: rgb(175, 185, 138);
+}
+.content{
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+.Helper{
+    max-height: 500px;
+    width: 90%;
+    color:  white !important;
+}
+.helper-Files{
+    border-top: 2px solid rgb(184, 148, 81);
+    padding: 50px 30px ;
+}
+
+.helper-Files div{
+    font-size: 12px;
+    padding: 10px;
+    width: 280px;
+    display: flow-root;
+
+}
+
+.helper-Files div i{
+    float: right;
+    padding-right: 20px;
+
+}
+.helper-Files div:hover{
+    border: 1px solid white;
+    cursor: pointer;
+}
+.action-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

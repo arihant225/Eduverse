@@ -1,0 +1,42 @@
+.heading{
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+.btn-grp{
+    margin-top: 50px;
+    display: flow-root;
+
+}
+.btn-grp div{
+    float: right;
+    background-color: white;
+    color: black;
+    padding: 8px 30px;
+    font-family: 'IBM Plex Mono', monospace;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white ;
+    width: 90%;
+    box-shadow: none;
+    padding: 20px 10px;
+    width: 300px;
+    float: left;
+    margin-right: 10%;
+    bottom: 28px;
+    position: relative;
+
+}
+ input:focus-visible{
+    outline: none;
+    border-bottom: rgb(205, 205, 154) solid 1px;
+}

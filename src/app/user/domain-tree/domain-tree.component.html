@@ -1,0 +1,25 @@
+<ng-container *ngIf="Domains!=null">
+      <ng-container *ngFor="let domain of Domains">
+            <ol *ngIf="domain!=null">
+
+                  <div class="domain-container"> {{domain.domainName}} &nbsp; <i class="bi bi-gear"
+                              (click)="openMenu(domain)"></i>
+                        <div class="domain-context" *ngIf="domain.refreshContext">
+                              <div (click)="ManageDomain.emit({action:'create',domain:domain,parentDomain:Domains})">
+                                    Create Sub-Domain</div>
+                              <div>Manage Users</div>
+                              <div (click)="ManageDomain.emit({action:'rename',domain:domain,parentDomain:Domains})">
+                                    Rename Domain</div>
+                              <div (click)="ManageDomain.emit({action:'deleted',domain:domain,parentDomain:Domains})">
+                                    Delete Domain</div>
+                        </div>
+                  </div>
+
+
+                  <ng-container *ngIf="domain.subDomains!=null&&domain.subDomains.length>0">
+                        <app-domain-tree (ManageDomain)="ManageDomain.emit($event)"
+                              [Domains]="domain.subDomains"></app-domain-tree>
+                  </ng-container>
+            </ol>
+      </ng-container>
+</ng-container>

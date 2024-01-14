@@ -24,7 +24,14 @@ import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
 import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
 import { ToasterComponent } from './public/widgets/toaster/toaster.component';
 import { ProposalComponent } from './public/proposal/proposal.component';
-
+import { OtpVerifierComponent } from './public/widgets/otp-verifier/otp-verifier.component';
+import { AdminDashboardComponent } from './user/admin-dashboard/admin-dashboard.component';
+import { DomainsViewComponent } from './user/domains-view/domains-view.component';
+import {MatTreeModule} from '@angular/material/tree';
+import { DomainTreeComponent } from './user/domain-tree/domain-tree.component';
+import { PopupComponent } from './public/widgets/popup/popup.component';
+import { ManageUsersComponent } from './user/admin/manage-users/manage-users.component';
+import { UploadCsvHelperComponent } from './public/widgets/popup/content/upload-csv-helper/upload-csv-helper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +53,14 @@ import { ProposalComponent } from './public/proposal/proposal.component';
     MydashboardComponent,
     BecomeAhostComponent,
     ToasterComponent,
-    ProposalComponent
+    ProposalComponent,
+    OtpVerifierComponent,
+    AdminDashboardComponent,
+    DomainsViewComponent,
+    DomainTreeComponent,
+    PopupComponent,
+    ManageUsersComponent,
+    UploadCsvHelperComponent,
 
   ],
   imports: [
@@ -54,7 +68,10 @@ import { ProposalComponent } from './public/proposal/proposal.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTreeModule
+  
+
   ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]

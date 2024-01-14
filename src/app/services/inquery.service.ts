@@ -15,11 +15,14 @@ export class InqueryService {
   
   constructor(private http:HttpClient) {
   }
-  public generateOtpForSignUpMail(body:IOtpRequest):Observable<IOtpResponse> 
+  public generateOtpForAddInquery(body:IOtpRequest):Observable<IOtpResponse> 
   {
     return this.http.post<IOtpResponse>(this.baseUrl+'Inquery/generateOtpForMail',body);
   }
-
+  public generateOtpForWithrawProposal(body:IOtpRequest,proposal:any):Observable<IOtpResponse> 
+  {
+    return this.http.post<IOtpResponse>(this.baseUrl+'Inquery/GenerateOtpForWithdrawProposal/'+proposal,body);
+  }
   
 public SearchQuery(accessor:string):Observable<Inquery>{
     
@@ -36,5 +39,8 @@ public SearchQuery(accessor:string):Observable<Inquery>{
   }
   public getImage(path:string):Observable<any>{
     return this.http.get(`${this.baseUrl}File/getFile/${path}`,{responseType:'blob'})
+  }
+  public WithdrawProposal(proposal:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}Inquery/WithdrawProposal/${proposal}`,{})
   }
 }

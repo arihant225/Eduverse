@@ -1,0 +1,37 @@
+<app-popup type="Users" *ngIf="false" [header]="edit?'Edit user details':'Add new user details'"></app-popup>
+<app-popup type="UploadHelpercsv" *ngIf="UploadHelper" (upload)="getCredentialsFromXlsx($event)"></app-popup>
+
+
+<div class="ActionsHeader">Add New Users</div>
+<div class="Quick-Actions">
+    <div (click)="uploadCsv()"><i class="bi bi-filetype-csv" ></i> import csv  </div>
+    <div><i class="bi bi-filetype-xls"></i> import Excel</div>
+</div>
+
+<div class="Data-Container" *ngIf="userKeys&&userKeys.length">
+    <div>
+        <p class="Data-Container-header">
+        Review Users : 
+    </p>
+        <div class="Quick-Actions">
+          <div> Integrate Users</div>
+          <div (click)="getCredentialsFromXlsx(null)"> Cancel Changes</div>  
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th *ngFor="let key of userKeys">{{key}}</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let user of userData">
+            <td *ngFor="let key of userKeys">
+                
+                <i *ngIf="testAttributes(user[key],key,user)"   class="bi bi-exclamation-triangle warning"></i> &nbsp;&nbsp;
+              <!-- <p class="context-edit"contenteditable="true" style="width: 100%;" (keyup)="changeData(key,ref.innerText,user)" #ref>  {{user[key]}} </p> -->
+              <input [(ngModel)]="user[key]" >
+            </td>
+            <td><a alt="remove user"><i class="bi bi-person-x warning" style="font-size: 18px!important"  (click)="removeCandidate(user)" ></i></a>
+            </td>
+        </tr>
+    </table>
+</div>

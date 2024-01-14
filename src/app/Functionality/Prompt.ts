@@ -95,15 +95,19 @@ export class UserPrompt  {
             this.signupService.createCredentials(credential).subscribe(
                 data=>{
                     if(data){
-                      
+                        this.backdropNotifier.text=null;
+                        alert("Account Created!!! kindly login with your credentials");
+                        this.router.navigate(["/login"])
                     }
                 },
                 error=>{
-                
-                },
-                ()=>{
+              
+                    alert("We can not create the account at this time, please try once later");
                     this.backdropNotifier.text=null;
                     this.router.navigate(["/login"])
+                },
+                ()=>{
+                    
                 }
             )
             return;

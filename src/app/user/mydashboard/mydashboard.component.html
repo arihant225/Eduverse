@@ -1,3 +1,6 @@
 <div>
     <app-author-dashboard *ngIf="AuthorizeForSuperUser()"></app-author-dashboard>
 </div>
+<div>
+    <app-admin-dashboard *ngIf="AuthorizeForAdminUser()"></app-admin-dashboard>
+</div>

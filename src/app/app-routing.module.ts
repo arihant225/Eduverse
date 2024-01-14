@@ -14,6 +14,8 @@ import { MydashboardComponent } from './user/mydashboard/mydashboard.component';
 import { BecomeAhostComponent } from './public/become-ahost/become-ahost.component';
 import { UserService } from './services/user.service';
 import { ProposalComponent } from './public/proposal/proposal.component';
+import { DomainsViewComponent } from './user/domains-view/domains-view.component';
+import { ManageUsersComponent } from './user/admin/manage-users/manage-users.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:'hostwithus',component:BecomeAhostComponent,pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent,canActivate:[CanactivateService],children:[
   {path:'',component:MydashboardComponent,pathMatch:'full'},
+    {path:'domains',component:DomainsViewComponent,pathMatch:'full',canActivate:[UserService.IsAdmin]},
+    {path:'manageUsers',component:ManageUsersComponent,pathMatch:'full',canActivate:[UserService.IsAdmin]},
     {path:'Search/institute/:type',component:MydashboardComponent,canActivate:[UserService.IsSuperAdmin],pathMatch:'full'},
     {path:'viewProposal/:proposal',component:ProposalComponent,pathMatch:'full'},
     {path:'connectToStream',component:ConnectToStreamComponent,pathMatch:'full'},

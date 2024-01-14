@@ -35,42 +35,12 @@ export class BecomeAhostComponent {
     websiteUrl:new FormControl("",[]),
     comment:new FormControl("",[])
   });
-  otpIndex=0;
-  otpText:string[]=['','','','','','']
   otpSectionEnabled:boolean=false
   invalidOtp:boolean=false;
  file:File=new File([],"");
-  otpEventHandler(event:KeyboardEvent){
-    if(event.key>='0'&&event.key<='9')
-    {
-   
-      
-    this.otpText[this.otpIndex]=event.key;
-    event.preventDefault(); 
-      this.otpIndex++;
-     
-      
-    }
-    else if(event.key=='Backspace')
-    return
-  
-  else if(event.key=='ArrowLeft')
-  this.otpIndex=this.otpIndex<=1?0:this.otpIndex-1;
-  else if(event.key=='ArrowRight')
-  this.otpIndex=this.otpIndex>=5?5:this.otpIndex+1;
-  else
-  event.preventDefault()
-  let ele=document.querySelectorAll('.otp-inp')[this.otpIndex]
-  if(ele)
-  {
-  
-    setTimeout(()=>{
-    (ele as HTMLInputElement).focus();
-  },0)
-  }
-    
-
-  }
+ proceedForOtpCheck(){
+  this.otpSectionEnabled=true;
+}
   constructor(public toasterService:ToasterService,private inqueryService:InqueryService,private backdropnotifierService:BackdropnotifierService,private otpService:OtpService,private route:Router)
   { 
    
@@ -153,7 +123,7 @@ save(){
       code:0,
     }
     this.backdropnotifierService.text="we sent you an otp on "+this.InstituteEnquiryForm.controls['Email'].value
-    this.inqueryService.generateOtpForSignUpMail(body).subscribe(
+    this.inqueryService.generateOtpForAddInquery(body).subscribe(
       data=>
       {
        this.backdropnotifierService.text=null;
@@ -166,9 +136,8 @@ save(){
   }
 }
 
-submitOtp(){
+submitOtp(otp:string){
   this.invalidOtp=false;
-  let otp=this.otpText.join("");
   if(otp.length==6)
   {
     this.backdropnotifierService.text="We are verifying the otp for you"
@@ -234,12 +203,5 @@ this.route.navigate(['/viewProposal',accessor.value])
     }
   )
 
-}
-proceedForOtpCheck(){
-  
-  this.otpText=['','','','','','']
-  this.otpIndex=0;
-  this.otpEventHandler(new KeyboardEvent(''))
-  this.otpSectionEnabled=true;
 }
 }

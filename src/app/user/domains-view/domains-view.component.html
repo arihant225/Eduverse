@@ -1,0 +1,9 @@
+<div class="heading">
+Domains
+</div>
+<div class="btn-grp">
+    <div (click)="EditDomainCache=null;popupState=true;NewDomain=true">Add New Domain</div>
+</div>
+<app-domain-tree [Domains]="domains" (ManageDomain)="ManageDomain($event)">
+</app-domain-tree>
+<app-popup *ngIf="popupState" [header]="NewDomain?'Add New Domain':'Update Domain'" [text]="NewDomain?'':EditDomainCache!=null?EditDomainCache.domain.domainName:''" [New]="NewDomain" (userAcceptance)="$event==null||$event.length==0?(popupState=false):saveDomain($event)"></app-popup>

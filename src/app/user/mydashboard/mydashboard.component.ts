@@ -10,7 +10,13 @@ export class MydashboardComponent {
 
   constructor()
   {}
+  
   AuthorizeForSuperUser(){
     return UserService.IsSuperAdmin();
+  }
+  AuthorizeForAdminUser()
+  {
+    
+    return UserService.IsAdmin();
   }
 }

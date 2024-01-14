@@ -1,60 +1,42 @@
 <ng-container *ngIf="isRootPath()">
     <div class="dashboard-box">
-        <div class="dashboard-img">
-            <img src="/assets/admindashboard.jpg">
+    <div class="counter-div"*ngFor="let key of keys" (click)="ViewInstituteItem(key)">
+        <div class="Counter" >
+            <div>
+            {{stats[key]}}
         </div>
+        <p>
+        {{headings[key]}}
+        </p>
 
-        <div class="dashboard-header">
-            <font style="font-size: 1rem;">let's unite efforts and forge connections with institutes, working together
-                to build a robust network</font>
-            <br>
-            <table>
-                <tr>
-                    <th>
-                        Status
-                    </th>
-                    <th>
-                        Count
-                    </th>
-
-                </tr>
-                <tr *ngFor="let key of keys" (click)="ViewInstituteItem(key)">
-                    <td>
-                        {{key}}
-                    </td>
-                    <td>
-                        {{stats[key]}}
-                    </td>
-
-                </tr>
-            </table>
         </div>
+    </div>
     </div>
 </ng-container>
 <ng-container *ngIf="isInstituteSearchPath()">
     <div class="div-group">
-        <div *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
-            <p>Accept All </p>
+        <div (click)="ActionsOnSelectedLender(InstitutionalStatus.Activate)" *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
+            <p>Accept Selected </p>
         </div>
-        <div *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
-            <p>Deny All </p>
+        <div (click)="ActionsOnSelectedLender(InstitutionalStatus.Rejected)"  *ngIf="ActionEnabledForQuery()||ActionEnabledForTotal()">
+            <p>Reject Selected </p>
         </div>
-        <div *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()">
-            <p>Block All </p>
+        <div (click)="ActionsOnSelectedLender(InstitutionalStatus.Blocked)"  *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()">
+            <p>Block Selected </p>
         </div>
-        <div *ngIf="ActionEnabledForInActive()||ActionEnabledForTotal()">
-            <p>Active All</p>
+        <div (click)="ActionsOnSelectedLender(InstitutionalStatus.Active)" *ngIf="ActionEnabledForInActive()||ActionEnabledForTotal()">
+            <p>Active Selected</p>
         </div>
-        <div *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()">
-            <p>Freeze All</p>
+        <div *ngIf="ActionEnabledForActive()||ActionEnabledForTotal()" (click)="ActionsOnSelectedLender(InstitutionalStatus.Inactive)">
+            <p>Freeze Selected</p>
         </div>
-        <input placeholder="Search By Institute Name /  Email" [(ngModel)]="instituteName" (keyup)="filterInstitutes()">
+        <input placeholder="Search By Institute Name /  Email"[(ngModel)]="instituteName" autocomplete="dsf" (keyup)="filterInstitutes()">
     </div>
     <div class="instituteContainer">
         <table class="instituteTable">
             <tr>
                 <th>
-                   <div class="checkBox" [ngClass]="{'selectAll':selectAllState}" (click)="selectAllInstitute()"> </div> &nbsp; select all
+                   <div class="checkBox" [ngClass]="{'selectSelected':selectAllState}" (click)="selectAllInstitute()"> </div> &nbsp; select All
                 </th>
                 <th>
                     Logo
@@ -78,7 +60,7 @@
             <tr *ngFor="let key of filteredInstitutes">
                 <td>
                   <div class="checkBox" *ngIf="!SelectedInstituteCache.includes(key)" (click)="selectInstitute(key)"></div>
-                  <div  style="cursor: pointer;" *ngIf="SelectedInstituteCache.includes(key)" (click)="selectInstitute(key)" >&#x2705;</div>
+                  <div  style="cursor: pointer;position: relative;left: -2px;" *ngIf="SelectedInstituteCache.includes(key)" (click)="selectInstitute(key)" >&#x2705;</div>
                 </td>
                 <td>
                     <img [src]="key.imgUrl" class="InstituteImage">
@@ -95,10 +77,13 @@
                 </td>
 
                 <td>
-                    <ng-container *ngIf="ActionEnabledForQuery()">
-                        <div class="Action" (click)="viewProposal(key)">View Proposal</div>
-                        <div class="Action">Accept</div>
-                        <div class="Action">Deny</div>
+                    <ng-container>
+                        <div  class="Action" (click)="viewProposal(key)">View Proposal</div>
+                        <div  (click)="ManageInstitute([key.accessor!=null?key.accessor:''],InstitutionalStatus.Activate)" *ngIf="key.status=='Query'" class="Action">Activate</div>
+                        <div  (click)="ManageInstitute([key.accessor!=null?key.accessor:''],InstitutionalStatus.Rejected)" *ngIf="key.status=='Query'" class="Action">Deny</div>
+                        <div (click)="ManageInstitute([key.accessor!=null?key.accessor:''],InstitutionalStatus.Blocked)" *ngIf="key.status=='Active'" class="Action">Block</div>             
+                        <div (click)="ManageInstitute([key.accessor!=null?key.accessor:''],InstitutionalStatus.Inactive)" *ngIf="key.status=='Active'" class="Action">Inactive</div>         
+                        <div (click)="ManageInstitute([key.accessor!=null?key.accessor:''],InstitutionalStatus.Active)" *ngIf="key.status=='Inactive'||key.status=='Blocked'" class="Action">Active </div>
                     </ng-container>
                 </td>
 

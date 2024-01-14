@@ -1,29 +1,67 @@
 .dashboard-img{
     border-radius:10px ;
-    width: 30%;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 20px;
     
 }
+.counter-div{
+    display: flex;
+    align-items: center;
+    height: 30vh;
+    margin-top: 50px;
+    padding: 30px;
+    row-gap: 25px;
+}
+.Counter p{
+    position: absolute;
+    left:130px;
+    background-color: black;
+    top: 90px;
+    padding: 10px 0px;
+    font-size: 12px;
 
-.dashboard-img img{
-    height: 300px;
+    width: max-content;
+}
+
+.Counter{
+    width: 160px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgb(205, 129, 74);
+    cursor: pointer;
+}
+.Counter:hover{
+    scale: 1.05;
+    box-shadow: 0px 0px 20px rgb(104, 91, 229);
+    color: rgb(185, 232, 255);
+}
+.Counter div{
+    font-size: 60px;
 }
 .dashboard-header{
     display: inline-block;
     height: 100%;
     padding: 0px 50px;
-    width: calc(70% - 10px) ;
+    padding: 10px;
     font-family: 'IBM Plex Mono', monospace;
     display: inline-block;
     position: relative;
+    margin: 0px 20px;
+    border-radius: 10px;
 }
 .dashboard-box{
     display: grid;
-grid-template-columns: 30% 70%;
+    grid-template-columns: 25% 25% 25% 25%;
 
 }
 table{
-    width: 90%;
+    width: 100%;
     margin-top: 5vh;
     border: #b5ffa4 solid 0.2px;
     color: white;
@@ -156,5 +194,13 @@ width: 150px;
  
   }
   .selectAll{
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(0, 0, 0);
+  }
+  td i{
+    position: absolute;
+  }
+  .context-edit:focus-visible{
+    outline: none !important;
+    border: none !important;
+
   }
